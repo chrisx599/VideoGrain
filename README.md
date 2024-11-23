@@ -2,11 +2,15 @@
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
 
 ```bash
-conda create -n s python=3.10
+# Step 1: Create and activate Conda environment
+conda create -n st-modulator python=3.10 -y
 conda activate st-modulator
+
+# Step 2: Install PyTorch and CUDA
 conda install pytorch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 pytorch-cuda=12.1 -c pytorch -c nvidia
-conda env create -f environment.yaml
-pip install diffusters=0.19.0
+
+# Step 3: Install additional dependencies with pip
+pip install -r requirements.txt
 ```
 
 `xformers` is recommended to save memory and running time. 
