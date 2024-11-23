@@ -9,23 +9,21 @@ conda env create -f environment.yaml
 pip install diffusters=0.19.0
 ```
 
-`xformers` is recommended for A100 GPU to save memory and running time. 
+`xformers` is recommended to save memory and running time. 
 
 </details>
 
-```
 You may download all data and checkpoints using the following bash command
 ```
 bash download_all.sh
 ```
 
-
-## ⚔️ ST-Modulator Editing
+## 🔥 ST-Modulator Editing
 
 You could reproduce multi-grained editing results in our teaser by running:
 
-```bash
-sh test.sh 
+```
+bash test.sh 
 #or accelerate launch test.py --config config/run_two_man.yaml
 ```
 
