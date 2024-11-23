@@ -1,7 +1,5 @@
-pretrained_model_path: /home/xianyang/Data/code/FateZero/ckpt/stable-diffusion-v1-5
-# "./ckpt/stable-diffusion-v1-5"
-
-logdir: ./result/run_two_man_test_2nd_time/
+pretrained_model_path: "./ckpt/stable-diffusion-v1-5"
+logdir: ./result/run_two_man/
 
 dataset_config:
     path: "data/run_two_man/run_two_man"
@@ -15,8 +13,7 @@ dataset_config:
 
 control_config:
     control_type: "dwpose"
-    pretrained_controlnet_path:  /home/xianyang/Data/code/FateZero/ckpt/control_v11p_sd15_openpose 
-    #"./ckpt/control_v11p_sd15_openpose" 
+    pretrained_controlnet_path: "./ckpt/control_v11p_sd15_openpose" 
     controlnet_conditioning_scale: 1.0
     hand: True
     face: False
