@@ -18,7 +18,7 @@ pip install -r requirements.txt
 </details>
 
 You may download all data and checkpoints using the following bash command
-```
+```bash
 bash download_all.sh
 ```
 
@@ -26,7 +26,7 @@ bash download_all.sh
 
 You could reproduce multi-grained editing results in our teaser by running:
 
-```
+```bash
 bash test.sh 
 #or accelerate launch test.py --config config/run_two_man.yaml
 ```
