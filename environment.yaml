@@ -182,4 +182,4 @@ dependencies:
       - wcwidth==0.2.13
       - werkzeug==3.0.3
       - zipp==3.19.2
-prefix: /Data/env/anaconda3/envs/flatten
+prefix: /Data/env/anaconda3/envs/st-modulator
