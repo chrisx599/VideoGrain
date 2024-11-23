@@ -3,7 +3,7 @@ Our method is tested using cuda12.1, fp16 of accelerator and xformers on a singl
 
 ```bash
 # Step 1: Create and activate Conda environment
-conda create -n st-modulator python=3.10 -y
+conda create -n st-modulator python==3.10 
 conda activate st-modulator
 
 # Step 2: Install PyTorch and CUDA
