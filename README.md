@@ -10,8 +10,8 @@ Our method is tested using cuda12.1, fp16 of accelerator and xformers on a singl
 
 ```bash
 # Step 1: Create and activate Conda environment
-conda create -n st-modulator python==3.10 
-conda activate st-modulator
+conda create -n videograin python==3.10 
+conda activate videograin
 
 # Step 2: Install PyTorch, CUDA and Xformers
 conda install pytorch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 pytorch-cuda=12.1 -c pytorch -c nvidia
@@ -36,13 +36,13 @@ gdown https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp
 tar -zxvf videograin_data.tar.gz
 ```
 
-## 🔥 ST-Modulator Editing
+## 🔥 VideoGrain Editing
 
 You could reproduce multi-grained editing results in our teaser by running:
 
 ```bash
 bash test.sh 
-#or accelerate launch test.py --config config/run_two_man.yaml
+#or accelerate launch test.py --config config/instance_level/running_two_man/running_3cls_polar_spider_vis_weight.yaml
 ```
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
