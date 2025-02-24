@@ -3,7 +3,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2312.02087-b31b1b.svg)](https://arxiv.org/abs/) 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/)
-[![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://mc-e.github.io/project/ReVideo/)
+[![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 
 ## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
