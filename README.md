@@ -1,4 +1,11 @@
-## 🛡 Setup Environment
+# VideoGrain: Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
+## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
+
+[![arXiv](https://img.shields.io/badge/arXiv-TokenFlow-b31b1b.svg)](https://arxiv.org/abs/) 
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/)
+[![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://mc-e.github.io/project/ReVideo/)
+
+## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
 
 ```bash
@@ -20,6 +27,13 @@ pip install -r requirements.txt
 You may download all data and checkpoints using the following bash command
 ```bash
 bash download_all.sh
+```
+
+## 🔛 Prepare all the data
+
+```
+gdown https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link
+tar -zxvf videograin_data.tar.gz
 ```
 
 ## 🔥 ST-Modulator Editing
