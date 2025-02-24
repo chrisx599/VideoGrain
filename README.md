@@ -32,7 +32,6 @@ bash download_all.sh
 ## 🔛 Prepare all the data
 
 ```
-mkdir data
 gdown https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link
 tar -zxvf videograin_data.tar.gz
 ```
