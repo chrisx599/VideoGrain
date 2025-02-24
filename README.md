@@ -1,7 +1,7 @@
 # VideoGrain: Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
 ## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
-[![arXiv](https://img.shields.io/badge/arXiv-TokenFlow-b31b1b.svg)](https://arxiv.org/abs/) 
+[![arXiv](https://img.shields.io/badge/arXiv-2312.02087-b31b1b.svg)](https://arxiv.org/abs/) 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://mc-e.github.io/project/ReVideo/)
 
