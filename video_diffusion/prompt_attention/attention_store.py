@@ -108,6 +108,31 @@ class AttentionStore(AttentionControl):
         average_attention = {key: [item / self.cur_step for item in self.attention_store[key]] for key in self.attention_store}
         return average_attention
 
+    def aggregate_attention(self, from_where: List[str], res: int, is_cross: bool, element_name='attn') -> torch.Tensor:
+        """Aggregates the attention across the different layers and heads at the specified resolution."""
+        out = []
+        num_pixels = res ** 2
+        attention_maps = self.get_average_attention()
+        for location in from_where:
+            for item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
+                print('is cross',is_cross)
+                print('item',item.shape)
+                #cross (t,head,res^2,77)
+                #self (head,t, res^2,res^2)
+                if is_cross:
+                    t, h, res_sq, token = item.shape
+                    if item.shape[2] == num_pixels:
+                        cross_maps = item.reshape(t, -1, res, res, item.shape[-1])
+                        out.append(cross_maps)
+                else:
+                    h, t, res_sq, res_sq = item.shape
+                    if item.shape[2] == num_pixels:
+                        self_item = item.permute(1, 0, 2, 3) #(t,head,res^2,res^2)
+                        self_maps = self_item.reshape(t, h, res, res, self_item.shape[-1])
+                        out.append(self_maps)
+        out = torch.cat(out, dim=-4)  #average head attention
+        out = out.sum(-4) / out.shape[-4]
+        return out
 
     def reset(self):
         super(AttentionStore, self).reset()

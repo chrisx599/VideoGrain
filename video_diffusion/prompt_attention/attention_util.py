@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 import video_diffusion.prompt_attention.ptp_utils as ptp_utils
-from video_diffusion.prompt_attention.visualization import show_cross_attention,show_cross_attention_plus_org_img,show_self_attention_comp
+from video_diffusion.prompt_attention.visualization import show_cross_attention,show_cross_attention_plus_org_img,show_self_attention_comp,aggregate_attention
 from video_diffusion.prompt_attention.attention_store import AttentionStore, AttentionControl
 from video_diffusion.prompt_attention.attention_register import register_attention_control
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -154,18 +154,22 @@ def identify_self_attention_max_min(sim, video, h_index:int, w_index:int, res: i
 
 
 
-class ModulatedAttentionControl(AttentionControl, abc.ABC):
+class ST_Layout_Attn_Control(AttentionControl, abc.ABC):
 
     def __init__(self, end_step=15, total_steps=50, step_idx=None, text_cond=None, sreg_maps=None, creg_maps=None, reg_sizes=None,reg_sizes_c=None, time_steps=None,clip_length=None,attention_type=None):
         """
-        Mutual self-attention control for Stable-Diffusion model
+        Spatial-Temporal Layout-guided Attention (ST-Layout Attn) for Stable-Diffusion model
+        note: without vis cross attention weight function.
         Args:
-            start_step: the step to start mutual self-attention control
-            start_layer: the layer to start mutual self-attention control
-            layer_idx: list of the layers to apply mutual self-attention control
-            step_idx: list the steps to apply mutual self-attention control
+            end_step: the step to end st-layout attn control
             total_steps: the total number of steps
-            model_type: the model type, SD or SDXL
+            step_idx: list the steps to apply mutual self-attention control
+            text_cond: discrete text embedding for each region.
+            sreg_maps: spatial-temporal self-attention qk condition maps.
+            creg_maps: cross-attention qk condition maps
+            reg_sizes/reg_sizes_c: size regularzation maps for each instance in self_attn/cross_attention
+            clip_length: frames len of video
+            attention_type: FullyFrameAttention_sliced_attn/FullyFrameAttention/SparseCausalAttention
         """
         super().__init__()
         self.total_steps = total_steps
@@ -294,14 +298,7 @@ class Attention_Record_Processor(AttentionStore, abc.ABC):
 
 
 
-class ModulatedAttention_ControlEdit(AttentionStore, abc.ABC):
-    """Decide self or cross-attention. Call the reweighting cross attention module
-
-    Args:
-        AttentionStore (_type_): ([1, 4, 8, 64, 64])
-        abc (_type_): [8, 8, 1024, 77]
-    """
-
+class ST_Layout_Attn_ControlEdit(AttentionStore, abc.ABC):
     def __init__(self, end_step=15, total_steps=50, step_idx=None, text_cond=None, sreg_maps=None, creg_maps=None, reg_sizes=None,reg_sizes_c=None, 
                  time_steps=None,
                  clip_length=None,attention_type=None,
@@ -311,16 +308,20 @@ class ModulatedAttention_ControlEdit(AttentionStore, abc.ABC):
                  video = None,
                  ):
         """
-        Mutual self-attention control for Stable-Diffusion model
+        Spatial-Temporal Layout-guided Attention (ST-Layout Attn) for Stable-Diffusion model
+        note: with vis cross attention weight function.
         Args:
-            start_step: the step to start mutual self-attention control
-            start_layer: the layer to start mutual self-attention control
-            layer_idx: list of the layers to apply mutual self-attention control
-            step_idx: list the steps to apply mutual self-attention control
+            end_step: the step to end st-layout attn control
             total_steps: the total number of steps
-            model_type: the model type, SD or SDXL
+            step_idx: list the steps to apply mutual self-attention control
+            text_cond: discrete text embedding for each region.
+            sreg_maps: spatial-temporal self-attention qk condition maps.
+            creg_maps: cross-attention qk condition maps
+            reg_sizes/reg_sizes_c: size regularzation maps for each instance in self_attn/cross_attention
+            clip_length: frames len of video
+            attention_type: FullyFrameAttention_sliced_attn/FullyFrameAttention/SparseCausalAttention
         """
-        super(ModulatedAttention_ControlEdit, self).__init__(
+        super(ST_Layout_Attn_ControlEdit, self).__init__(
             save_self_attention=save_self_attention,
             disk_store=disk_store)
         self.total_steps = total_steps
@@ -354,7 +355,7 @@ class ModulatedAttention_ControlEdit(AttentionStore, abc.ABC):
 
 
     def forward(self, sim, is_cross: bool, place_in_unet: str,**kwargs):
-        super(ModulatedAttention_ControlEdit, self).forward(sim, is_cross, place_in_unet,**kwargs)
+        super(ST_Layout_Attn_ControlEdit, self).forward(sim, is_cross, place_in_unet,**kwargs)
 
         # print("self.cur_step",self.cur_step)
         key = f"{place_in_unet}_{'cross' if is_cross else 'self'}"

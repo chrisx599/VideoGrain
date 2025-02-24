@@ -18,7 +18,7 @@ from transformers import CLIPTextModel, CLIPTokenizer
 import torch.nn.functional as F
 from omegaconf import OmegaConf
 from video_diffusion.prompt_attention.attention_register import register_attention_control
-from video_diffusion.prompt_attention.attention_util import ModulatedAttentionControl,ModulatedAttention_ControlEdit,Attention_Record_Processor
+from video_diffusion.prompt_attention.attention_util import ST_Layout_Attn_Control,ST_Layout_Attn_ControlEdit,Attention_Record_Processor
 from video_diffusion.prompt_attention import attention_util
 from video_diffusion.prompt_attention.sd_study_utils import *
 from video_diffusion.prompt_attention.attention_store import AttentionStore
@@ -142,6 +142,7 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
                                       control = None,
                                       controlnet_conditioning_scale=None,
                                       use_pnp=None,
+                                      cluster_inversion_feature = None,
                                       **kwargs,
                                       ): 
         weight_dtype = image.dtype
@@ -262,88 +263,90 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
             }
         else:
             attn_inversion_dict = None
-        '''
-        inv_self_avg_dict={}
-        inv_cross_avg_dict={}
-        element_name = 'attn'
-        attn_size = 32
-        for element_name in ['attn']:
-            inv_self_avg_dict[element_name]={}
-            inv_cross_avg_dict[element_name]={}
 
-        self_attn_avg = editor.aggregate_attention(from_where=("up", "down", "mid"), 
-                                                                res=attn_size,is_cross=False)
+        if cluster_inversion_feature:
+            logger.info('cluster ddim inversion feature')
+            inv_self_avg_dict={}
+            inv_cross_avg_dict={}
+            element_name = 'attn'
+            attn_size = 32
+            for element_name in ['attn']:
+                inv_self_avg_dict[element_name]={}
+                inv_cross_avg_dict[element_name]={}
 
-        cross_attn_avg = editor.aggregate_attention(from_where=("up", "down", "mid"), 
-                                                                res=attn_size,is_cross=True)   
+            self_attn_avg = editor.aggregate_attention(from_where=("up", "down", "mid"), 
+                                                                    res=attn_size,is_cross=False)
 
-        print('self_attn_avg',self_attn_avg.shape)
-        print('cross_attn_avg', cross_attn_avg.shape)
-        inv_self_avg_dict[element_name][attn_size]=self_attn_avg
-        inv_cross_avg_dict[element_name][attn_size]=cross_attn_avg
+            cross_attn_avg = editor.aggregate_attention(from_where=("up", "down", "mid"), 
+                                                                    res=attn_size,is_cross=True)   
 
-        os.makedirs(os.path.join(self.logdir, "attn_inv"), exist_ok=True)
-        os.makedirs(os.path.join(self.logdir, "sd_study"), exist_ok=True)
-        with open(os.path.join(self.logdir, 
-                "attn_inv/inv_self_avg_dict.pkl"), 
-                'wb') as f:
-            pkl.dump(inv_self_avg_dict, f)
+            print('self_attn_avg',self_attn_avg.shape)
+            print('cross_attn_avg', cross_attn_avg.shape)
+            inv_self_avg_dict[element_name][attn_size]=self_attn_avg
+            inv_cross_avg_dict[element_name][attn_size]=cross_attn_avg
 
-        with open(os.path.join(self.logdir, 
-                "attn_inv/inv_cross_avg_dict.pkl"), 
-                'wb') as f:
-            pkl.dump(inv_cross_avg_dict, f)
+            os.makedirs(os.path.join(self.logdir, "attn_inv"), exist_ok=True)
+            os.makedirs(os.path.join(self.logdir, "sd_study"), exist_ok=True)
+            with open(os.path.join(self.logdir, 
+                    "attn_inv/inv_self_avg_dict.pkl"), 
+                    'wb') as f:
+                pkl.dump(inv_self_avg_dict, f)
 
-        num_segments=3
-        draw_pca(inv_self_avg_dict, resolution=32, dict_key='attn', 
-                save_path=os.path.join(self.logdir, 'sd_study'),
-                special_name='inv_self')
-    
-        run_clusters(inv_self_avg_dict, resolution=32, dict_key='attn', 
-                save_path=os.path.join(self.logdir, 'sd_study'),
-                special_name='inv_self',num_segments=num_segments)
+            with open(os.path.join(self.logdir, 
+                    "attn_inv/inv_cross_avg_dict.pkl"), 
+                    'wb') as f:
+                pkl.dump(inv_cross_avg_dict, f)
 
-        cross_attn_visualization = attention_util.show_cross_attention_plus_org_img(self.tokenizer, source_prompt, 
-                                    image, editor, 32, ["up", "down", "mid"], save_path= os.path.join(self.logdir,'sd_study'),attention_maps=cross_attn_avg)
-
-
-        dict_key='attn'
-        special_name='inv_self'
-        resolution = 32
-        threshold=0.1
+            num_segments=3
+            draw_pca(inv_self_avg_dict, resolution=32, dict_key='attn', 
+                    save_path=os.path.join(self.logdir, 'sd_study'),
+                    special_name='inv_self')
         
-        tokenized_prompt = nltk.word_tokenize(source_prompt)
-        nouns = [(i, word) for (i, (word, pos)) in enumerate(nltk.pos_tag(tokenized_prompt)) if pos[:2] == 'NN']
-        print(nouns)
+            run_clusters(inv_self_avg_dict, resolution=32, dict_key='attn', 
+                    save_path=os.path.join(self.logdir, 'sd_study'),
+                    special_name='inv_self',num_segments=num_segments)
 
-        npy_name=f'cluster_{dict_key}_{resolution}_{special_name}.npy'
-        save_path=os.path.join(self.logdir, 'sd_study')
+            cross_attn_visualization = attention_util.show_cross_attention_plus_org_img(self.tokenizer, source_prompt, 
+                                        image, editor, 32, ["up", "down", "mid"], save_path= os.path.join(self.logdir,'sd_study'),attention_maps=cross_attn_avg)
 
-        abs_filename=os.path.join(self.logdir, "attn_inv", f"inv_cross_avg_dict.pkl")
-        inv_cross_avg_dict=read_pkl(abs_filename)
 
-        video_cross_attention = inv_cross_avg_dict['attn'][32]
-        video_clusters=np.load(os.path.join(save_path, npy_name))
+            dict_key='attn'
+            special_name='inv_self'
+            resolution = 32
+            threshold=0.1
+            
+            tokenized_prompt = nltk.word_tokenize(source_prompt)
+            nouns = [(i, word) for (i, (word, pos)) in enumerate(nltk.pos_tag(tokenized_prompt)) if pos[:2] == 'NN']
+            print(nouns)
 
-        t = video_clusters.shape[0]
-        for i in range(t):
-            clusters = video_clusters[i]
-            cross_attention = video_cross_attention[i]
-            c2noun, c2mask = cluster2noun_(clusters, threshold, num_segments, nouns,cross_attention)
-            print('c2noun',c2noun)
-            merged_mask={}
-            for index in range(len(c2noun)):    
-                # mask_ = merged_mask[class_name]
-                item=c2noun[index]
-                mask_ = c2mask[index]
-                mask_ = torch.from_numpy(mask_)
-                mask_ = F.interpolate(mask_.float().unsqueeze(0).unsqueeze(0), size=512, mode='nearest').round().bool().squeeze(0).squeeze(0)
-                
-                output_name = os.path.join(f"{save_path}",
-                                            f"frame_{i}_{item}_{index}.png")
+            npy_name=f'cluster_{dict_key}_{resolution}_{special_name}.npy'
+            save_path=os.path.join(self.logdir, 'sd_study')
 
-                save_mask(mask_,  output_name)
-        '''
+            abs_filename=os.path.join(self.logdir, "attn_inv", f"inv_cross_avg_dict.pkl")
+            inv_cross_avg_dict=read_pkl(abs_filename)
+
+            video_cross_attention = inv_cross_avg_dict['attn'][32]
+            video_clusters=np.load(os.path.join(save_path, npy_name))
+
+            t = video_clusters.shape[0]
+            for i in range(t):
+                clusters = video_clusters[i]
+                cross_attention = video_cross_attention[i]
+                c2noun, c2mask = cluster2noun_(clusters, threshold, num_segments, nouns,cross_attention)
+                print('c2noun',c2noun)
+                merged_mask={}
+                for index in range(len(c2noun)):    
+                    # mask_ = merged_mask[class_name]
+                    item=c2noun[index]
+                    mask_ = c2mask[index]
+                    mask_ = torch.from_numpy(mask_)
+                    mask_ = F.interpolate(mask_.float().unsqueeze(0).unsqueeze(0), size=512, mode='nearest').round().bool().squeeze(0).squeeze(0)
+                    
+                    output_name = os.path.join(f"{save_path}",
+                                                f"frame_{i}_{item}_{index}.png")
+
+                    save_mask(mask_,  output_name)
+        
         return latents, attn_inversion_dict
 
     
@@ -666,6 +669,8 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
         logdir: str=None,
         controlnet_conditioning_scale: float = 1.0,
         use_pnp:  bool = False,
+        cluster_inversion_feature: bool = False,
+        vis_cross_attn: bool = False,
         attn_inversion_dict: dict=None,
         **kwargs,
     ):
@@ -689,12 +694,11 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
 
         self.scheduler.set_timesteps(num_inference_steps, device=device)
 
-
         if latents is None:
             latents, attn_inversion_dict = self.prepare_latents_ddim_inverted(
                 image, batch_size, source_prompt,
                 do_classifier_free_guidance, generator, 
-                control, controlnet_conditioning_scale, use_pnp
+                control, controlnet_conditioning_scale, use_pnp, cluster_inversion_feature
             )
             print("use inversion latents")
 
@@ -709,7 +713,7 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
 
         #============do visualization for st-layout attn===============#
         self.store_controller = attention_util.AttentionStore()
-        editor = ModulatedAttention_ControlEdit(text_cond=text_cond,sreg_maps=sreg_maps,creg_maps=creg_maps,reg_sizes=reg_sizes,reg_sizes_c=reg_sizes_c,
+        editor = ST_Layout_Attn_ControlEdit(text_cond=text_cond,sreg_maps=sreg_maps,creg_maps=creg_maps,reg_sizes=reg_sizes,reg_sizes_c=reg_sizes_c,
                                                 time_steps=time_steps,clip_length=clip_length,attention_type=attention_type,
                                                 additional_attention_store=self.store_controller,
                                                 save_self_attention = True,
@@ -719,7 +723,7 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
         attention_util.register_attention_control(self, editor, text_cond, clip_length, downsample_height,downsample_width,ddim_inversion=False)
         #============do visualization for st-layout attn===============#
 
-        # editor = ModulatedAttentionControl(text_cond=text_cond,sreg_maps=sreg_maps,creg_maps=creg_maps,reg_sizes=reg_sizes,reg_sizes_c=reg_sizes_c,
+        # editor = ST_Layout_Attn_Control(text_cond=text_cond,sreg_maps=sreg_maps,creg_maps=creg_maps,reg_sizes=reg_sizes,reg_sizes_c=reg_sizes_c,
         #                                    time_steps=time_steps,clip_length=clip_length,attention_type=attention_type)  
 
         # register_attention_control(self, editor, text_cond, clip_length,downsample_height,downsample_width,ddim_inversion=False)
@@ -813,9 +817,10 @@ class DDIMSpatioTemporalStableDiffusionPipeline(SpatioTemporalStableDiffusionPip
 
         ### vis cross attn
         # image shape fchw
-        # save_path = os.path.join(logdir,'visualization_denoise')
-        # os.makedirs(save_path, exist_ok=True)
-        # attention_output = attention_util.show_cross_attention_plus_org_img(self.tokenizer,prompt, image, editor, 32, ["up","down"],save_path=save_path)
+        if vis_cross_attn:
+            save_path = os.path.join(logdir,'visualization_denoise')
+            os.makedirs(save_path, exist_ok=True)
+            attention_output = attention_util.show_cross_attention_plus_org_img(self.tokenizer,prompt, image, editor, 32, ["up","down"],save_path=save_path)
 
         # 8. Post-processing
         image = self.decode_latents(latents)

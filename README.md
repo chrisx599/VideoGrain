@@ -6,9 +6,9 @@ Our method is tested using cuda12.1, fp16 of accelerator and xformers on a singl
 conda create -n st-modulator python==3.10 
 conda activate st-modulator
 
-# Step 2: Install PyTorch and CUDA
+# Step 2: Install PyTorch, CUDA and Xformers
 conda install pytorch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 pytorch-cuda=12.1 -c pytorch -c nvidia
-
+pip install --pre -U xformers==0.0.27
 # Step 3: Install additional dependencies with pip
 pip install -r requirements.txt
 ```

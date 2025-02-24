@@ -130,6 +130,8 @@ class SampleLogger:
         inject_step = None,
         old_qk = None,
         use_pnp = None,
+        cluster_inversion_feature = None,
+        vis_cross_attn = None,
         attn_inversion_dict = None,
     ):
         torch.cuda.empty_cache()
@@ -173,8 +175,9 @@ class SampleLogger:
                     inject_step=inject_step,
                     old_qk=old_qk,
                     use_pnp=use_pnp,
+                    cluster_inversion_feature= cluster_inversion_feature,
+                    vis_cross_attn = vis_cross_attn,
                     attn_inversion_dict=attn_inversion_dict,
-                    # Put the source prompt at the first one, when using p2p
                 )
 
                 sequence = sequence_return.images[0]

@@ -67,7 +67,7 @@ def test(
     mixed_precision: Optional[str] = "fp16",
     batch_size: int = 1,
     model_config: dict={},
-    verbose: bool=True,
+    cluster_inversion_feature: bool=False,
     **kwargs
 
 ):
@@ -322,6 +322,7 @@ def test(
             do_classifier_free_guidance=True,  
             control=batch['control'], controlnet_conditioning_scale=control_config['controlnet_conditioning_scale'], 
             use_pnp=editing_config['use_pnp'],
+            cluster_inversion_feature=editing_config.get('cluster_inversion_feature', False),
             trajs=trajectories,
             old_qk=editing_config["old_qk"],
             flatten_res=editing_config['flatten_res']
@@ -373,6 +374,8 @@ def test(
                 inject_step=editing_config["inject_step"],
                 old_qk=editing_config["old_qk"],
                 use_pnp = editing_config['use_pnp'],
+                cluster_inversion_feature = editing_config.get('cluster_inversion_feature', False),
+                vis_cross_attn = editing_config.get('vis_cross_attn', False), 
                 attn_inversion_dict = attn_inversion_dict,
             )
 

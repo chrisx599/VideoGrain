@@ -60,24 +60,66 @@ def cluster2noun_mod(clusters, background_segment_threshold, num_segments, nouns
         result_mask[c]=cluster_mask
     return result, result_mask
 
-def cluster2noun_(clusters, background_segment_threshold, num_segments, nouns, cross_attention):
-    REPEAT=clusters.shape[0]/cross_attention.shape[0]
+def cluster2noun_(clusters, background_segment_threshold, num_segments, nouns, cross_attention, attention_threshold=0.2):
+    REPEAT = clusters.shape[0] // cross_attention.shape[0]
     
     result = {}
-    result_mask={}
+    result_mask = {}
+    print('cross_attention',cross_attention.shape)
+
+    # 提取名词索引和对应的注意力图
     nouns_indices = [index for (index, word) in nouns]
     nouns_maps = cross_attention.cpu().numpy()[:, :, [i + 1 for i in nouns_indices]]
-    normalized_nouns_maps = np.zeros_like(nouns_maps).repeat(REPEAT, axis=0).repeat(REPEAT, axis=1)
-    for i in range(nouns_maps.shape[-1]):
-        curr_noun_map = nouns_maps[:, :, i].repeat(REPEAT, axis=0).repeat(REPEAT, axis=1)
-        normalized_nouns_maps[:, :, i] = (curr_noun_map - np.abs(curr_noun_map.min())) / curr_noun_map.max()
+    print('nouns_maps', nouns_maps.shape)
+    normalized_nouns_maps = nouns_maps
+    #normalized_nouns_maps = np.zeros_like(nouns_maps).repeat(REPEAT, axis=0).repeat(REPEAT, axis=1)
+    
+    # 标准化注意力图并应用阈值
+    # for i in range(nouns_maps.shape[-1]):
+    #     curr_noun_map = nouns_maps[:, :, i].repeat(REPEAT, axis=0).repeat(REPEAT, axis=1)
+    #     normalized_map = (curr_noun_map - np.abs(curr_noun_map.min())) / curr_noun_map.max()
+        
+    #     # 应用阈值，将低于阈值的部分设为 0
+    #     #normalized_map[normalized_map < attention_threshold] = 0
+        
+    #     normalized_nouns_maps[:, :, i] = normalized_map
+    
+    print('normalized_nouns_maps', normalized_nouns_maps.shape)
+
+    #show_normalized_nouns_maps(normalized_nouns_maps, nouns, logdir)
+    
+    # 用于记录已经分配的单词
+    assigned_nouns = set()
+    
     for c in range(num_segments):
         cluster_mask = np.zeros_like(clusters)
         cluster_mask[clusters == c] = 1
+        
         score_maps = [cluster_mask * normalized_nouns_maps[:, :, i] for i in range(len(nouns_indices))]
         scores = [score_map.sum() / cluster_mask.sum() for score_map in score_maps]
-        result[c] = nouns[np.argmax(np.array(scores))] if max(scores) > background_segment_threshold else "BG"
-        result_mask[c]=cluster_mask
+        
+        # 找出最高分的名词，并确保未被分配过
+        sorted_scores_indices = np.argsort(scores)[::-1]
+        assigned_word = None
+        
+        for idx in sorted_scores_indices:
+            if scores[idx] > background_segment_threshold and nouns[idx] not in assigned_nouns:
+                assigned_word = nouns[idx]
+                assigned_nouns.add(nouns[idx])  # 记录这个单词已分配
+                break
+        
+        # 如果没有找到合适的名词，强制分配最高分的未分配名词
+        if assigned_word is None and len(sorted_scores_indices) > 0:
+            for idx in sorted_scores_indices:
+                if nouns[idx] not in assigned_nouns:
+                    assigned_word = nouns[idx]
+                    assigned_nouns.add(nouns[idx])  # 记录这个单词已分配
+                    break
+        
+        if assigned_word:
+            result[c] = assigned_word
+            result_mask[c] = cluster_mask
+    
     return result, result_mask
 
 
