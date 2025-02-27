@@ -1,5 +1,5 @@
 pretrained_model_path: "./ckpt/stable-diffusion-v1-5"
-logdir: ./result/part_level/adding_new_object/man_text_message/superman+cap_blend_with_suit_bg
+logdir: ./result/part_level/adding_new_object/man_text_message/superman+cap
 
 dataset_config:
     path: "data/man_text_message/man_text_message"
@@ -27,7 +27,7 @@ editing_config:
     use_pnp: true
     use_freeu: false
     editing_prompts: [
-        ['Superman in a flat cap before store','Superman','flat cap'],
+        ['Superman in a flat cap before store','Superman','flat cap','store'],
     ]
 
     clip_length: "${..dataset_config.n_sample_frame}"

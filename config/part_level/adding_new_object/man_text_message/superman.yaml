@@ -1,5 +1,5 @@
 pretrained_model_path: "./ckpt/stable-diffusion-v1-5"
-logdir: ./result/part_level/adding_new_object/man_text_message/superman_blend_with_suit_bg
+logdir: ./result/part_level/adding_new_object/man_text_message/superman
 
 dataset_config:
     path: "data/man_text_message/man_text_message"
@@ -8,7 +8,7 @@ dataset_config:
     n_sample_frame: 16
     sampling_rate: 1
     layout_mask_dir: "data/man_text_message/layout_masks"
-    layout_mask_order: ['man','suit_bg']
+    layout_mask_order: ['man','bg']
     negative_promot: "jittery, ugly, blurry, low res, unrealistic, unaesthetic"
 
 control_config:
@@ -17,7 +17,7 @@ control_config:
    controlnet_conditioning_scale: 1.0
    hand: true
    face: false
- 
+
 editing_config:
     use_invertion_latents: true
     inject_step: 10
@@ -27,7 +27,7 @@ editing_config:
     use_pnp: true
     use_freeu: false
     editing_prompts: [
-        ['Superman before store','Superman'],
+        ['Superman before store','Superman','store'],
     ]
 
     clip_length: "${..dataset_config.n_sample_frame}"
