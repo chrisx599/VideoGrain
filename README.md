@@ -32,15 +32,18 @@ bash download_all.sh
 
 Prepare ControlNet annotator weights (e.g., DW-Pose, depth_zoe, depth_midas, OpenPose)
 
-## Switch to the ckpts directory
-cd ckpts
-
+```
+mkdir annotator/ckpts
+```
 Method 1: Download dwpose models 
+
 (Note: if your are avaiable to huggingface, other models like depth_zoe etc can be automatically downloaded)
+
 Download dwpose model dw-ll_ucoco_384.onnx ([baidu](https://pan.baidu.com/s/1nuBjw-KKSxD_BkpmwXUJiw?pwd=28d7), [google](https://drive.google.com/file/d/12L8E2oAgZy4VACGSK9RaZBZrfgx7VTA2/view?usp=sharing)) and Det model yolox_l.onnx ([baidu](https://pan.baidu.com/s/1fpfIVpv5ypo4c1bUlzkMYQ?pwd=mjdn), [google](https://drive.google.com/file/d/1w9pXC8tT0p9ndMN-CArp1__b2GbzewWI/view?usp=sharing)), 
 Then put them into ./annotator/ckpts. 
 
 Method 2: Download all annotator checkpoints from google or baiduyun (when can not access to huggingface) 
+
 If you cannot access HuggingFace, you can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/.1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
 Then extract them into ./annotator/ckpts
 
