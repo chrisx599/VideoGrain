@@ -44,7 +44,7 @@ Then put them into ./annotator/ckpts.
 
 Method 2: Download all annotator checkpoints from google or baiduyun (when can not access to huggingface) 
 
-If you cannot access HuggingFace, you can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
+If you cannot access HuggingFace, you can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose, cost around 4G.) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
 Then extract them into ./annotator/ckpts
 
 
