@@ -1,4 +1,5 @@
 annotator/ckpts/**
+annotator/annotator_ckpts.tar.gz
 result/**
 trash/**
 data/** 
