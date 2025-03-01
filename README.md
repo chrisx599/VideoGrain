@@ -2,9 +2,10 @@
 ## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258) 
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/papers/2502.17258)
+[![HuggingFace Daily Papers Top1](https://img.shields.io/static/v1?label=HuggingFace%20Daily%20Papers&message=Top1&color=blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
-
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)  
+[![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU)
 
 <table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
@@ -70,7 +71,7 @@ bash download_all.sh
 
 <details><summary>Click for ControlNet annotator weights (if you can not access to huggingface)</summary>
 
-You can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose, cost around 4G.) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
+You can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose, cost around 4G) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
 Then extract them into ./annotator/ckpts
 
 </details>
@@ -97,10 +98,10 @@ or accelerate launch test.py --config config/part_level/adding_new_object/run_tw
 ```
 result
 ├── run_two_man
-│   ├── control                # control conditon 
+│   ├── control                         # control conditon 
 │   ├── infer_samples
-│           ├── input             # the input video frames
-│           ├── masked_video.mp4    # check whether edit regions are accuratedly covered
+│           ├── input                   # the input video frames
+│           ├── masked_video.mp4        # check whether edit regions are accuratedly covered
 │   ├── sample
 │           ├── step_0                  # result image folder
 │           ├── step_0.mp4              # result video

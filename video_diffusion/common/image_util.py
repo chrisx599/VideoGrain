@@ -19,8 +19,6 @@ import torchvision.transforms.functional as F
 import random
 from scipy.ndimage import binary_dilation
 import sys
-sys.path.append('/home/xianyang/Data/code/FateZero/video_diffusion/gmflow')
-from gmflow.gmflow import GMFlow
 
 IMAGE_EXTENSION = (".jpg", ".jpeg", ".png", ".ppm", ".bmp", ".pgm", ".tif", ".tiff", ".webp", ".JPEG")
 
@@ -577,29 +575,6 @@ def sample_trajectories_new(video_path, device,height,width):
 
     clips = list(range(len(frames)))
     
-    #=============== GM-flow estimate forward optical flow============#
-    # model = GMFlow(feature_channels=128,
-    #                num_scales=1,
-    #                upsample_factor=8,
-    #                num_head=1,
-    #                attention_type='swin',
-    #                ffn_dim_expansion=4,
-    #                num_transformer_layers=6,
-    #                ).to(device)
-    # checkpoint = torch.load('/home/xianyang/Data/code/FRESCO/model/gmflow_sintel-0c07dcb3.pth', map_location=lambda storage, loc: storage)
-    # weights = checkpoint['model'] if 'model' in checkpoint else checkpoint
-    # model.load_state_dict(weights, strict=False)
-    # model.eval() 
-    # finished_trajectories = []
-
-    # current_frames, next_frames = preprocess(frames[clips[:-1]], frames[clips[1:]], transforms, height,width)
-    # results_dict = model(current_frames.to(device),  next_frames.to(device), attn_splits_list=[2], 
-    #                           corr_radius_list=[-1], prop_radius_list=[-1], pred_bidir_flow=True)
-    # flow_pr = results_dict['flow_preds'][-1]  # [2*B, 2, H, W]
-    # fwd_flows, bwd_flows = flow_pr.chunk(2)   # [B, 2, H, W]
-    # predicted_flows = fwd_flows
-    #=============== GM-flow estimate forward optical flow============#
-
     #=============== raft-large estimate forward optical flow============#
     model = raft_large(weights=Raft_Large_Weights.DEFAULT, progress=False).to(device)
     model = model.eval()
