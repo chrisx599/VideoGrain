@@ -1,5 +1,5 @@
 pretrained_model_path: "./ckpt/stable-diffusion-v1-5"
-logdir: ./result/run_two_man/instance_level/3cls_vis_cross_attn_flag_test
+logdir: ./result/run_two_man/instance_level/3cls_spider_polar_vis_cross_attn
 
 dataset_config:
     path: "data/run_two_man/run_two_man_fr2"

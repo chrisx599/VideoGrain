@@ -1,15 +1,32 @@
 import cv2
 import numpy as np
-
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 import onnxruntime as ort
 from .onnxdet import inference_detector
 from .onnxpose import inference_pose
+from annotator.util import annotator_ckpts_path
+
 
 class Wholebody:
     def __init__(self):
         device = 'cuda:0'
         providers = ['CPUExecutionProvider'
                  ] if device == 'cpu' else ['CUDAExecutionProvider']
+
+        remote_dw_pose_path = "https://huggingface.co/sxela/dwpose_ckpts/resolve/main/dw-ll_ucoco_384.onnx"
+        remote_yolox_path = "https://huggingface.co/sxela/dwpose_ckpts/resolve/main/yolox_l.onnx"
+        
+        dw_pose_path = os.path.join(annotator_ckpts_path, "dw-ll_ucoco_384.onnx")
+        yolox_path = os.path.join(annotator_ckpts_path, "yolox_l.onnx")
+
+        if not os.path.exists(dw_pose_path):
+            from basicsr.utils.download_util import load_file_from_url
+            load_file_from_url(remote_dw_pose_path, model_dir=annotator_ckpts_path)
+        if not os.path.exists(yolox_path):
+            from basicsr.utils.download_util import load_file_from_url
+            load_file_from_url(remote_yolox_path, model_dir=annotator_ckpts_path)
+
         onnx_det = 'annotator/ckpts/yolox_l.onnx'
         onnx_pose = 'annotator/ckpts/dw-ll_ucoco_384.onnx'
 

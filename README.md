@@ -43,7 +43,7 @@ https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
 * **[2025/1/23]**  Our paper is accepted to [ICLR2025](https://openreview.net/forum?id=SSslAtcPB6)! Welcome to **watch** 👀 this repository for the latest updates.
 
 
-## ▶️ Setup Environment
+## 🍻 Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
 
 ```bash
@@ -68,23 +68,12 @@ You may download all the base model checkpoints using the following bash command
 bash download_all.sh
 ```
 
-Prepare ControlNet annotator weights (e.g., DW-Pose, depth_zoe, depth_midas, OpenPose)
+<details><summary>Click for ControlNet annotator weights (if you can not access to huggingface)</summary>
 
-```
-mkdir annotator/ckpts
-```
-Method 1: Download dwpose models 
-
-(Note: if your are avaiable to huggingface, other models like depth_zoe etc can be automatically downloaded)
-
-Download dwpose model dw-ll_ucoco_384.onnx ([baidu](https://pan.baidu.com/s/1nuBjw-KKSxD_BkpmwXUJiw?pwd=28d7), [google](https://drive.google.com/file/d/12L8E2oAgZy4VACGSK9RaZBZrfgx7VTA2/view?usp=sharing)) and Det model yolox_l.onnx ([baidu](https://pan.baidu.com/s/1fpfIVpv5ypo4c1bUlzkMYQ?pwd=mjdn), [google](https://drive.google.com/file/d/1w9pXC8tT0p9ndMN-CArp1__b2GbzewWI/view?usp=sharing)), 
-Then put them into ./annotator/ckpts. 
-
-Method 2: Download all annotator checkpoints from google or baiduyun (when can not access to huggingface) 
-
-If you cannot access HuggingFace, you can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose, cost around 4G.) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
+You can download all the annotator checkpoints (such as DW-Pose, depth_zoe, depth_midas, and OpenPose, cost around 4G.) from [baidu](https://pan.baidu.com/s/1sgBFLFkdTCDTn4oqHjGb9A?pwd=pdm5) or [google](https://drive.google.com/file/d/1qOsmWshnFMMr8x1HteaTViTSQLh_4rle/view?usp=drive_link)
 Then extract them into ./annotator/ckpts
 
+</details>
 
 ## 🔛 Prepare all the data
 
@@ -95,11 +84,12 @@ tar -zxvf videograin_data.tar.gz
 
 ## 🔥 VideoGrain Editing
 
-You could reproduce multi-grained editing results in our teaser by running:
+### Inference
+VideoGrain is a training-free framework. To run the inference script, use the following command:
 
 ```bash
 bash test.sh 
-#or accelerate launch test.py --config config/instance_level/running_two_man/running_3cls_polar_spider_vis_weight.yaml
+or accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml
 ```
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
@@ -107,12 +97,16 @@ bash test.sh
 ```
 result
 ├── run_two_man
+│   ├── control                # control conditon 
 │   ├── infer_samples
+│           ├── input             # the input video frames
+│           ├── masked_video.mp4    # check whether edit regions are accuratedly covered
 │   ├── sample
-│           ├── step_0         # result image folder
-│           ├── step_0.mp4       # result video
-│           ├── source_video.mp4    # the input video
-
+│           ├── step_0                  # result image folder
+│           ├── step_0.mp4              # result video
+│           ├── source_video.mp4        # the input video
+│           ├── visualization_denoise   # cross attention weight
+│           ├── sd_study                # cluster inversion feature
 ```
 
 </details>

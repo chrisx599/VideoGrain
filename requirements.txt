@@ -66,3 +66,4 @@ nltk==3.8.1
 timm==0.6.7
 scikit-image==0.24.0
 gdown==5.1.0
+basicsr-fixed
