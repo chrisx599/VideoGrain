@@ -6,11 +6,11 @@
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 
 
-<table class="center" border="1" cellspacing="0" cellpadding="5" style="text-align:center;">
+<table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
-    <td colspan="2"><img src="assets/teaser/class_level.gif"  style="width:250px; height:auto;"></td>
-    <td colspan="2"><img src="assets/teaser/instance_part.gif"  style="width:250px; height:auto;"></td>
-    <td colspan="2"><img src="assets/teaser/2monkeys.gif" style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/class_level.gif"  style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/instance_part.gif"  style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/2monkeys.gif" style="width:250px; height:auto;"></td>
   </tr>
   <tr>
     <td colspan="2" style="text-align:right; width:250px;">class level</td>
@@ -20,9 +20,9 @@
   </tr>
   
   <tr>
-    <td colspan="2" ><img src="assets/teaser/2cats.gif" style="width:250px; height:auto;"></td>
-    <td colspan="2" ><img src="assets/teaser/soap-box.gif" style="width:250px; height:auto;"></td>
-    <td colspan="2" ><img src="assets/teaser/man-text-message.gif" style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/2cats.gif" style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/soap-box.gif" style="width:250px; height:auto;"></td>
+    <td colspan="2" style="text-align:center;"><img src="assets/teaser/man-text-message.gif" style="width:250px; height:auto;"></td>
   </tr>
   <tr>
     <td colspan="2" style="text-align:center; width:250px;">animal instances</td>
