@@ -6,28 +6,28 @@
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 
 
-<table class="center" border="1" cellspacing="0" cellpadding="5">
+<table class="center" border="1" cellspacing="0" cellpadding="5" style="text-align:center;">
   <tr>
-    <td colspan="2"><img src="assets/teaser/class_level.gif" alt="class"></td>
-    <td colspan="2" ><img src="assets/teaser/instance_part.gif" alt="Instance+part"></td>
-    <td colspan="2"><img src="assets/teaser/2monkeys.gif" alt="Demo2 Image 1"></td>
+    <td><img src="assets/teaser/class_level.gif"  style="width:200px; height:auto;"></td>
+    <td><img src="assets/teaser/instance_part.gif"  style="width:200px; height:auto;"></td>
+    <td><img src="assets/teaser/2monkeys.gif" style="width:200px; height:auto;"></td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align:center;">class level</td>
-    <td colspan="1" style="text-align:center;">instance level</td>
-    <td colspan="1" style="text-align:center;">part level</td>
-    <td colspan="2" style="text-align:center;">animal instances</td>
+    <td style="text-align:right; width:200px;">class level</td>
+    <td style="text-align:center; width:100px;">instance level</td>
+    <td style="text-align:center; width:100px;">part level</td>
+    <td style="text-align:center; width:200px;">animal instances</td>
   </tr>
   
   <tr>
-    <td colspan="2"><img src="assets/teaser/2cats.gif" alt="Demo3 Image 1"></td>
-    <td colspan="2"><img src="assets/teaser/soap-box.gif" alt="Demo3 Image 2"></td>
-    <td colspan="2"><img src="assets/teaser/man-text-message.gif" alt="Demo3 Image 3"></td>
+    <td><img src="assets/teaser/2cats.gif" style="width:200px; height:auto;"></td>
+    <td><img src="assets/teaser/soap-box.gif" style="width:200px; height:auto;"></td>
+    <td><img src="assets/teaser/man-text-message.gif" style="width:200px; height:auto;"></td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align:center;">animal instances</td>
-    <td colspan="2" style="text-align:center;">human instances</td>
-    <td colspan="2" style="text-align:center;">part-level modification</td>
+    <td style="text-align:center; width:200px;">animal instances</td>
+    <td style="text-align:center; width:200px;">human instances</td>
+    <td style="text-align:center; width:200px;">part-level modification</td>
   </tr>
 </table>
 
