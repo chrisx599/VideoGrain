@@ -54,6 +54,10 @@
 
 </table > -->
 
+
+https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
+
+
 ## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
 
