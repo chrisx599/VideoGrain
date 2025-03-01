@@ -8,9 +8,8 @@
 
 <table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
-    <td colspan="2"><img src="assets/teaser/class_level.gif" alt="class level"></td>
-    <td colspan="1" ><img src="assets/teaser/instance_level.gif" alt="Instance Level"></td>
-    <td colspan="1" ><img src="assets/teaser/part_level.gif" alt="Part Level"></td>
+    <td colspan="2"><img src="assets/teaser/class_level.gif" alt="class"></td>
+    <td colspan="2" ><img src="assets/teaser/instance_part.gif" alt="Instance+part"></td>
     <td colspan="2"><img src="assets/teaser/2monkeys.gif" alt="Demo2 Image 1"></td>
   </tr>
   <tr>
