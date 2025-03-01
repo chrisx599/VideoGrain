@@ -43,9 +43,6 @@ https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
 * **[2025/1/23]**  Our paper is accepted to [ICLR2025](https://openreview.net/forum?id=SSslAtcPB6)! Welcome to **watch** 👀 this repository for the latest updates.
 
 
-https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
-
-
 ## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
 
