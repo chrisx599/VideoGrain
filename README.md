@@ -6,22 +6,29 @@
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 
 
-
 <table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
-    <td colspan="2"><img src="assets/teaser/class_level.gif" alt="Demo3 Image 1"></td>
-    <td colspan="2"><img src="assets/teaser/2cats.gif" alt="Demo3 Image 2"></td>
-    <td colspan="2"><img src="assets/teaser/man-text-message.gif" alt="Demo3 Image 3"></td>
-  </tr>
-  <tr>
-    <td colspan="2"><img src="assets/teaser/wolf.gif" alt="Demo3 Image 1"></td>
-    <td colspan="2"><img src="assets/teaser/soap-box.gif" alt="Demo3 Image 2"></td>
-    <td colspan="2"><img src="assets/teaser/boxer-punching.gif" alt="Demo3 Image 3"></td>
+    <td colspan="2"><img src="assets/teaser/class_level.gif" alt="class level"></td>
+    <td><img src="assets/teaser/instance_level.gif" alt="Instance Level"></td>
+    <td><img src="assets/teaser/part_level.gif" alt="Part Level"></td>
+    <td colspan="2"><img src="assets/teaser/2monkeys.gif" alt="Demo2 Image 1"></td>
   </tr>
   <tr>
     <td colspan="2" style="text-align:center;">class level</td>
-    <td colspan="2" style="text-align:center;">instance level</td>
-    <td colspan="2" style="text-align:center;">part level</td>
+    <td colspan="1" style="text-align:center;">instance level</td>
+    <td colspan="1" style="text-align:center;">part level</td>
+    <td colspan="2" style="text-align:center;"></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2"><img src="assets/teaser/2cats.gif" alt="Demo3 Image 1"></td>
+    <td colspan="2"><img src="assets/teaser/soap-box.gif" alt="Demo3 Image 2"></td>
+    <td colspan="2"><img src="assets/teaser/man-text-message.gif" alt="Demo3 Image 3"></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:center;">animal instances</td>
+    <td colspan="2" style="text-align:center;">human instances</td>
+    <td colspan="2" style="text-align:center;">part-level modification</td>
   </tr>
 </table>
 
