@@ -32,27 +32,15 @@
   </tr>
 </table>
 
+## 📀 Demo Video
+https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
 
-<!-- <table class="center">
-<td><img src="assets/teaser/multi-grain-demo.gif"></td>
-<td><img src="assets/teaser/2monkeys.gif"></td>
-<tr>
-<td width=16% style="text-align:center;">Multi-Grained Video Editing</td>
-<td width=16% style="text-align:center;">Class Level: human class → spiderman</td>
-<td width=16% style="text-align:center;">Instance Level: left → Spiderman, right → Polar Bear</td>
-<td width=16% style="text-align:center;">Part Level: Polar Bear + Sunglasses</td>
-<td width=20% style="text-align:center;">left → teddy bear, right → golden retriever</td>
-</tr>
-<td><img src="assets/teaser/2cats.gif"></td>
-<td><img src="assets/teaser/soap-box.gif"></td>
-<td><img src="assets/teaser/man-text-message.gif"></td>
-<tr>
-<td width=25% style="text-align:center;">left cat→ Samoyed, right cat→ Tiger</td>
-<td width=25% style="text-align:center;">behind→ Iron Man, front→ Stormtrooper</td>
-<td width=25% style="text-align:center;">half-sleeve gray shirt→ a black sui</td>
-</tr>
 
-</table > -->
+## 📣 News
+* **[2025/2/25]**  Our VideoGrain is posted and recommended  by Gradio on [LinkedIn](https://www.linkedin.com/posts/gradio_just-dropped-videograin-a-new-zero-shot-activity-7300094635094261760-hoiE) and [Twitter](https://x.com/Gradio/status/1894328911154028566), and recommended by [AK](https://x.com/_akhaliq/status/1894254599223017622).
+* **[2025/2/25]**  Our VideoGrain is submited by AK to [HuggingFace-daily papers](https://huggingface.co/papers?date=2025-02-25), and rank [#1](https://huggingface.co/papers/2502.17258) paper of that day.
+* **[2025/2/24]**  We release our paper on [arxiv](https://arxiv.org/abs/2502.17258), we also release [code](https://github.com/knightyxp/VideoGrain) and [full-data](https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link) on google drive.
+* **[2025/1/23]**  Our paper is accepted to [ICLR2025](https://openreview.net/forum?id=SSslAtcPB6)! Welcome to **watch** 👀 this repository for the latest updates.
 
 
 https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
