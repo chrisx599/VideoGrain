@@ -16,7 +16,7 @@
     <td colspan="2" style="text-align:center;">class level</td>
     <td colspan="1" style="text-align:center;">instance level</td>
     <td colspan="1" style="text-align:center;">part level</td>
-    <td colspan="2" style="text-align:center;"></td>
+    <td colspan="2" style="text-align:center;">animal instances</td>
   </tr>
   
   <tr>
