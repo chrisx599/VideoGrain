@@ -1,9 +1,36 @@
-# VideoGrain: Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
+<div align="center">Multi-grained Video Editing
+<h2>
+<font color="red"> VideoGrain: </font></center> <br> 
+<center> Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
+</h2>
+
 ## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258) 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
+
+
+<table class="center">
+<td><img src="assets/teaser/multi-grain-demo.gif"></td>
+<td><img src="assets/teaser/2monkeys.gif"></td>
+<tr>
+<td width=16% style="text-align:center;">Multi-Grained Video Editing</td>
+<td width=16% style="text-align:center;">"Class Level: human class → spiderman"</td>
+<td width=16% style="text-align:center;">"Instance Level: left → Spiderman, right → Polar Bear"</td>
+<td width=16% style="text-align:center;">"Part Level: Polar Bear + Sunglasses"</td>
+<td width=20% style="text-align:center;">"left → teddy bear, right → golden retriever"</td>
+</tr>
+<td><img src="assets/teaser/2cats.gif"></td>
+<td><img src="assets/teaser/soap-box.gif"></td>
+<td><img src="assets/teaser/man"></td>
+<tr>
+<td width=25% style="text-align:center;">"left cat→ Samoyed, right cat→ Tiger"</td>
+<td width=25% style="text-align:center;">"behind→ Iron Man, front→ Stormtrooper"</td>
+<td width=25% style="text-align:center;">"half-sleeve gray shirt→ a black suit"</td>
+</tr>
+
+</table >
 
 ## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
