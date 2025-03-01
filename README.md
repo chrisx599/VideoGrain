@@ -8,26 +8,26 @@
 
 <table class="center" border="1" cellspacing="0" cellpadding="5" style="text-align:center;">
   <tr>
-    <td><img src="assets/teaser/class_level.gif"  style="width:200px; height:auto;"></td>
-    <td><img src="assets/teaser/instance_part.gif"  style="width:200px; height:auto;"></td>
-    <td><img src="assets/teaser/2monkeys.gif" style="width:200px; height:auto;"></td>
+    <td colspan="2"><img src="assets/teaser/class_level.gif"  style="width:200px; height:auto;"></td>
+    <td colspan="2"><img src="assets/teaser/instance_part.gif"  style="width:200px; height:auto;"></td>
+    <td colspan="2"><img src="assets/teaser/2monkeys.gif" style="width:200px; height:auto;"></td>
   </tr>
   <tr>
-    <td style="text-align:right; width:200px;">class level</td>
-    <td style="text-align:center; width:100px;">instance level</td>
-    <td style="text-align:center; width:100px;">part level</td>
-    <td style="text-align:center; width:200px;">animal instances</td>
+    <td colspan="2" style="text-align:right; width:200px;">class level</td>
+    <td colspan="1" style="text-align:center; width:100px;">instance level</td>
+    <td colspan="1" style="text-align:center; width:100px;">part level</td>
+    <td colspan="2" style="text-align:center; width:200px;">animal instances</td>
   </tr>
   
   <tr>
-    <td><img src="assets/teaser/2cats.gif" style="width:200px; height:auto;"></td>
-    <td><img src="assets/teaser/soap-box.gif" style="width:200px; height:auto;"></td>
-    <td><img src="assets/teaser/man-text-message.gif" style="width:200px; height:auto;"></td>
+    <td colspan="2" ><img src="assets/teaser/2cats.gif" style="width:200px; height:auto;"></td>
+    <td colspan="2" ><img src="assets/teaser/soap-box.gif" style="width:200px; height:auto;"></td>
+    <td colspan="2" ><img src="assets/teaser/man-text-message.gif" style="width:200px; height:auto;"></td>
   </tr>
   <tr>
-    <td style="text-align:center; width:200px;">animal instances</td>
-    <td style="text-align:center; width:200px;">human instances</td>
-    <td style="text-align:center; width:200px;">part-level modification</td>
+    <td colspan="2" style="text-align:center; width:200px;">animal instances</td>
+    <td colspan="2" style="text-align:center; width:200px;">human instances</td>
+    <td colspan="2" style="text-align:center; width:200px;">part-level modification</td>
   </tr>
 </table>
 
