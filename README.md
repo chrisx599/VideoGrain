@@ -124,12 +124,15 @@ If you think this project is helpful, please feel free to leave a star⭐️⭐�
 }
 ``` 
 
+## 📞 Contact Authors
+Xiangpeng Yang [@knightyxp](https://github.com/knightyxp), email: knightyxp@gmail.com/Xiangpeng.Yang@student.uts.edu.au
+
 ## ✨ Acknowledgements
 
 - This code builds on [diffusers](https://github.com/huggingface/diffusers), and [FateZero](https://github.com/ChenyangQiQi/FateZero). Thanks for open-sourcing!
 - We would like to thank [AK(@_akhaliq)](https://x.com/_akhaliq/status/1894254599223017622) and Gradio team for recommendation!
 
 
-## ⭐️⭐️⭐️ Star History
+## ⭐️ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=knightyxp/VideoGrain&type=Date)](https://star-history.com/#knightyxp/VideoGrain&Date)
