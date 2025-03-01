@@ -13,7 +13,8 @@
     <td colspan="2" style="text-align:center;"><img src="assets/teaser/2monkeys.gif" style="width:250px; height:auto;"></td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align:right; width:250px;">class level</td>
+    <td colspan="1" style="text-align:center; width:125px;"></td>
+    <td colspan="1" style="text-align:center; width:125px;">class level</td>
     <td colspan="1" style="text-align:center; width:125px;">instance level</td>
     <td colspan="1" style="text-align:center; width:125px;">part level</td>
     <td colspan="2" style="text-align:center; width:250px;">animal instances</td>
