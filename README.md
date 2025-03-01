@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <!-- <td colspan="1" style="text-align:right; width:125px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
-    <td colspan="2" style="text-align:right; width:250px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class level</td>
+    <td colspan="2" style="text-align:right; width:250px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class level</td>
     <td colspan="1" style="text-align:center; width:125px;">instance level</td>
     <td colspan="1" style="text-align:center; width:125px;">part level</td>
     <td colspan="2" style="text-align:center; width:250px;">animal instances</td>
