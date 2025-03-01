@@ -1,15 +1,14 @@
-<div align="center">Multi-grained Video Editing
+<div align="center">
 <h2>
 <font color="red"> VideoGrain: </font></center> <br> 
 <center> Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
 </h2>
 </div>
-## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
+## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258) 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
-
 
 
 
@@ -24,10 +23,10 @@
   </tr>
   <tr>
     <td style="text-align:center;"></td>
-    <td style="text-align:center;">Class Level: human class → spiderman</td>
-    <td style="text-align:center;">Instance Level: left → Spiderman, right → Polar Bear</td>
-    <td style="text-align:center;">Part Level: Polar Bear + Sunglasses</td>
-    <td colspan="2" style="text-align:center;">left → teddy bear, right → golden retriever</td>
+    <td style="text-align:center;">Class Level</td>
+    <td style="text-align:center;">Instance Level</td>
+    <td style="text-align:center;">Part Level</td>
+    <td colspan="2" style="text-align:center;">instance-animals</td>
   </tr>
   
   <tr>
@@ -36,9 +35,9 @@
     <td colspan="2"><img src="assets/teaser/man-text-message.gif" alt="Demo3 Image 3"></td>
   </tr>
   <tr>
-    <td colspan="2" style="text-align:center;">left cat → Samoyed, right cat → Tiger</td>
-    <td colspan="2" style="text-align:center;">behind → Iron Man, front → Stormtrooper</td>
-    <td colspan="2" style="text-align:center;">half-sleeve gray shirt → a black suit</td>
+    <td colspan="2" style="text-align:center;">animal instances</td>
+    <td colspan="2" style="text-align:center;">multi-region editing</td>
+    <td colspan="2" style="text-align:center;">part-level modification</td>
   </tr>
 </table>
 
