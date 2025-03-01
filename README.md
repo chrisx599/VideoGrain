@@ -3,7 +3,7 @@
 <font color="red"> VideoGrain: </font></center> <br> 
 <center> Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
 </h2>
-
+</div>
 ## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258) 
@@ -11,26 +11,58 @@
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 
 
-<table class="center">
+
+
+<table class="center" border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><img src="assets/teaser/run_two_man.gif" alt="Source Video"></td>
+    <td><img src="assets/teaser/class_level.gif" alt="Class Level"></td>
+    <td><img src="assets/teaser/instance_level.gif" alt="Instance Level"></td>
+    <td><img src="assets/teaser/part_level.gif" alt="Part Level"></td>
+    <td><img src="assets/teaser/2monkeys.gif" alt="Demo2 Image 1"></td>
+    <td><img src="assets/teaser/2monkeys_edit.gif" alt="Demo2 Image 2"></td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"></td>
+    <td style="text-align:center;">Class Level: human class → spiderman</td>
+    <td style="text-align:center;">Instance Level: left → Spiderman, right → Polar Bear</td>
+    <td style="text-align:center;">Part Level: Polar Bear + Sunglasses</td>
+    <td colspan="2" style="text-align:center;">left → teddy bear, right → golden retriever</td>
+  </tr>
+  
+  <tr>
+    <td colspan="2"><img src="assets/teaser/2cats.gif" alt="Demo3 Image 1"></td>
+    <td colspan="2"><img src="assets/teaser/soap-box.gif" alt="Demo3 Image 2"></td>
+    <td colspan="2"><img src="assets/teaser/man-text-message.gif" alt="Demo3 Image 3"></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:center;">left cat → Samoyed, right cat → Tiger</td>
+    <td colspan="2" style="text-align:center;">behind → Iron Man, front → Stormtrooper</td>
+    <td colspan="2" style="text-align:center;">half-sleeve gray shirt → a black suit</td>
+  </tr>
+</table>
+
+
+<!-- <table class="center">
 <td><img src="assets/teaser/multi-grain-demo.gif"></td>
 <td><img src="assets/teaser/2monkeys.gif"></td>
 <tr>
 <td width=16% style="text-align:center;">Multi-Grained Video Editing</td>
-<td width=16% style="text-align:center;">"Class Level: human class → spiderman"</td>
-<td width=16% style="text-align:center;">"Instance Level: left → Spiderman, right → Polar Bear"</td>
-<td width=16% style="text-align:center;">"Part Level: Polar Bear + Sunglasses"</td>
-<td width=20% style="text-align:center;">"left → teddy bear, right → golden retriever"</td>
+<td width=16% style="text-align:center;">Class Level: human class → spiderman</td>
+<td width=16% style="text-align:center;">Instance Level: left → Spiderman, right → Polar Bear</td>
+<td width=16% style="text-align:center;">Part Level: Polar Bear + Sunglasses</td>
+<td width=20% style="text-align:center;">left → teddy bear, right → golden retriever</td>
 </tr>
 <td><img src="assets/teaser/2cats.gif"></td>
 <td><img src="assets/teaser/soap-box.gif"></td>
-<td><img src="assets/teaser/man"></td>
+<td><img src="assets/teaser/man-text-message.gif"></td>
 <tr>
-<td width=25% style="text-align:center;">"left cat→ Samoyed, right cat→ Tiger"</td>
-<td width=25% style="text-align:center;">"behind→ Iron Man, front→ Stormtrooper"</td>
-<td width=25% style="text-align:center;">"half-sleeve gray shirt→ a black suit"</td>
+<td width=25% style="text-align:center;">left cat→ Samoyed, right cat→ Tiger</td>
+<td width=25% style="text-align:center;">behind→ Iron Man, front→ Stormtrooper</td>
+<td width=25% style="text-align:center;">half-sleeve gray shirt→ a black sui</td>
 </tr>
 
-</table >
+</table > -->
 
 ## ▶️ Setup Environment
 Our method is tested using cuda12.1, fp16 of accelerator and xformers on a single L40.
