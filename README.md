@@ -1,10 +1,10 @@
 # VideoGrain: Modulating Space-Time Attention for Multi-Grained Video Editing (ICLR 2025)
 ## [<a href="https://knightyxp.github.io/VideoGrain_project_page/" target="_blank">Project Page</a>]
 
-[![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258) 
+[![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258)
 [![HuggingFace Daily Papers Top1](https://img.shields.io/static/v1?label=HuggingFace%20Daily%20Papers&message=Top1&color=blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)  
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)
 [![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU)
 
 <table class="center" border="1" cellspacing="0" cellpadding="5">
@@ -111,3 +111,25 @@ result
 ```
 
 </details>
+
+
+## ✏️ Citation 
+If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:
+```bibtex
+@article{yang2025videograin,
+  title={VideoGrain: Modulating Space-Time Attention for Multi-grained Video Editing},
+  author={Yang, Xiangpeng and Zhu, Linchao and Fan, Hehe and Yang, Yi},
+  journal={arXiv preprint arXiv:2502.17258},
+  year={2025}
+}
+``` 
+
+## ✨ Acknowledgements
+
+- This code builds on [diffusers](https://github.com/huggingface/diffusers), and [FateZero](https://github.com/ChenyangQiQi/FateZero). Thanks for open-sourcing!
+- We would like to thank [AK(@_akhaliq)](https://x.com/_akhaliq/status/1894254599223017622) and Gradio team for recommendation!
+
+
+## ⭐️⭐️⭐️ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=knightyxp/VideoGrain&type=Date)](https://star-history.com/#knightyxp/VideoGrain&Date)
