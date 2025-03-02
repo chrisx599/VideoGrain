@@ -4,8 +4,18 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258)
 [![HuggingFace Daily Papers Top1](https://img.shields.io/static/v1?label=HuggingFace%20Daily%20Papers&message=Top1&color=blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fknightyxp%2FVideoGrain&count_bg=%23C83DB9&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 [![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU)
+
+This repo contains the codebase for our ICLR 2025 paper "[VideoGrain: Modulating Space-Time Attention for Multi-Grained Video Editing](https://arxiv.org/abs/2502.17258)"
+
+<!-- ## Introduction
+VideoGrain is a novel framework to achieve multi-grained video editing.
+- Perform Video Editing **WITH ONLY SINGLE IMAGE**
+  - turning video editing into an image editing problem
+  - can seamlessly build on top of image editing methods to perform diverse types of editing
+- Training-Free
+  - Does not require any training/fine-tuning -->
 
 <table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
