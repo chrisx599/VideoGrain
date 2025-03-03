@@ -92,17 +92,17 @@ Then extract them into ./annotator/ckpts
 
 ## ⚡️ Prepare all the data
 
-### Provided data
+### Full VideoGrain Data
 We have provided `all the video data and layout masks in VideoGrain` at following link. Please download unzip the data and put them in the `./data' root directory.
 ```
 gdown https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link
 tar -zxvf videograin_data.tar.gz
 ```
-### Customize your own data 
+### Customize Your Own Data 
 **prepare video to frames**
 If the input video is mp4 file, using the following command to process it to frames:
 ```bash
-python image_util/sample_video2frames.py --video_path 'your video path' --output_dir './data/video_name'
+python image_util/sample_video2frames.py --video_path 'your video path' --output_dir './data/video_name/video_name'
 ```
 **prepare layout masks**
 We segment videos using our ReLER lab's [SAM-Track](https://github.com/z-x-yang/Segment-and-Track-Anything). I suggest using the `app.py` in SAM-Track for `graio` mode to manually select which region in the video your want to edit. Here, we also provided an script ` image_util/process_webui_mask.py` to process masks from SAM-Track path to VideoGrain path.
@@ -112,16 +112,19 @@ We segment videos using our ReLER lab's [SAM-Track](https://github.com/z-x-yang/
 
 ### Inference
 
-**prepare config**
+**🔛prepare your config**
 
-VideoGrain is a training-free framework. To run VideoGrain, please prepare your config follow these steps:
-1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth` (midas).
+VideoGrain is a training-free framework. To run VideoGrain on your video, modify `./config/demo_config.yaml` based on your needs:
+
+1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth`(midas).
 2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
 3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
 4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
-5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5-10`. (Note that pnp>10 steps will be bad for multi-regions editing)
+5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5/10`. (Note: pnp>10 steps will be bad for multi-regions editing)
 6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
 7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
+
+**😍Editing your video**
 
 ```bash
 bash test.sh 
@@ -146,10 +149,63 @@ result
 │           ├── sd_study                # cluster inversion feature
 ```
 </details>
-Editing 16 frames video on an single L40, the GPU memory cost is at most 23GB memory. The RAM cost is very small, roughly around 4GB.
 
+### 🚀Multi-Grained Video Editing Results
+## 🌈 Multi-Grained Definition 
+You can get multi-grained definition result, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/running_two_man/running_man2spider.yaml   #class-level
+                                                # /config/instance_level/running_two_man/running_4cls_spider_polar.yaml  #instance-level
+                                      #config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml #part-level
+```
+<table class="center">
+<tr>
+  <td width=25% style="text-align:center;">source video</td>
+  <td width=25% style="text-align:center;">class level</td>
+  <td width=25% style="text-align:center;">instance level</td>
+  <td width=25% style="text-align:center;">part level</td>
+</tr>
+<tr>
+  <td><img src="./assets/teaser/run_two_man.gif"></td>
+  <td><img src="./assets/teaser/class_level_0.gif"></td>
+  <td><img src="./assets/teaser/instance_level.gif"></td>
+  <td><img src="./assets/teaser/part_level.gif"></td>
+</tr>
+</table>
 
-## Instance-level Video Editing
+## 💃 Instance-level Video Editing
+You can get instance-level video editing results, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level/running_two_man/running_3cls_iron_spider.yaml
+```
+
+<table class="center">
+<tr>
+  <td width=50% style="text-align:center;">config/instance_level/running_two_man/running_3cls_iron_spider.yaml</td>
+  <td width=50% style="text-align:center;">config/instance_level/2_monkeys/monkeys_2cls_teddy_bear_koala.yaml</td>
+</tr>
+<tr>
+  <td><img src="assets/teaser/left_iron_right_spider.gif"></td>
+  <td><img src="assets/teaser/teddy_koala.gif"></td>
+</tr>
+<tr>
+  <td width=50% style="text-align:center;">config/instance_level/badminton/badminton_2cls_wonder_woman_spiderman.yaml</td>
+  <td width=50% style="text-align:center;">config/instance_level/bike_3/left_ironman_right_monkey.yaml</td>
+</tr>
+<tr>
+  <td><img src="assets/teaser/badminton.gif"></td>
+  <td><img src="assets/teaser/bike_3.gif"></td>
+</tr>
+<tr>
+  <td width=50% style="text-align:center;">config/instance_level/2_cats/2cats_4cls_panda_vs_poddle.yaml</td>
+  <td width=50% style="text-align:center;">config/instance_level/2_cars/2cars_left_firetruck_right_school_bus.yaml</td>
+</tr>
+<tr>
+  <td><img src="assets/teaser/panda_vs_poddle.gif"></td>
+  <td><img src="assets/teaser/2cars.gif"></td>
+</tr>
+</table>
+
 
 ## ✏️ Citation 
 If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:
