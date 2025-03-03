@@ -5,7 +5,7 @@
 [![HuggingFace Daily Papers Top1](https://img.shields.io/static/v1?label=HuggingFace%20Daily%20Papers&message=Top1&color=blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)
-[![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU)
+[![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU?si=MvvlhmE5ZsDfRuCX)
 
 
 ## Introduction
@@ -47,8 +47,8 @@ VideoGrain is a zero-shot method for class-level, instance-level, and part-level
 </table>
 
 ## 📀 Demo Video
-[![Demo Video of VideoGrain](https://res.cloudinary.com/dii3btvh8/image/upload/v1740987943/cover_video_y6cjfe.png)](https://www.youtube.com/watch?v=XEM4Pex7F9E "Demo Video of VideoGrain")
-<!-- https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d -->
+<!-- [![Demo Video of VideoGrain](https://res.cloudinary.com/dii3btvh8/image/upload/v1740987943/cover_video_y6cjfe.png)](https://www.youtube.com/watch?v=XEM4Pex7F9E "Demo Video of VideoGrain") -->
+https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
 
 
 ## 📣 News
