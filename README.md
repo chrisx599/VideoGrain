@@ -249,22 +249,6 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modi
 </table>
 
 
-
-
-<table class="center">
-<tr>
-  <td><img src="assets/part-level/superman_cap.gif"></td>
-  <td><img src="assets/part-level/superman_sunglass.gif"></td>
-  <td><img src="assets/part-level/thor_sunglass.gif"></td>
-</tr>
-<tr>
-  <td width=30% style="text-align:center;">superman+cap</td>
-  <td width=30% style="text-align:center;">superman+sunglasses</td>
-  <td width=30% style="text-align:center;">thor+sunglasses+red gloves</td>
-</tr>
-</table>
-
-
 ## ✏️ Citation 
 If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:
 ```bibtex
