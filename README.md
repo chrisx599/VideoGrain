@@ -47,10 +47,8 @@ VideoGrain is a zero-shot method for class-level, instance-level, and part-level
 </table>
 
 ## 📀 Demo Video
-[![Demo Video of VideoGrain](https://res.cloudinary.com/dii3btvh8/image/upload/v1740987943/cover_video_y6cjfe.png)](https://www.youtube.com/watch?v=XEM4Pex7F9E "Demo Video of VideoGrain")
-<!-- https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d -->
+<!-- [![Demo Video of VideoGrain](https://res.cloudinary.com/dii3btvh8/image/upload/v1740987943/cover_video_y6cjfe.png)](https://www.youtube.com/watch?v=XEM4Pex7F9E "Demo Video of VideoGrain") -->
 https://github.com/user-attachments/assets/9bec92fc-21bd-4459-86fa-62404d8762bf
-
 
 
 ## 📣 News
