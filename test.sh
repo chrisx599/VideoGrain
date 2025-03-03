@@ -1,2 +1,2 @@
 export CUDA_VISIBLE_DEVICES=0
-accelerate launch test.py --config config/instance_level/running_two_man/running_3cls_polar_spider_vis_weight.yaml
+accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml

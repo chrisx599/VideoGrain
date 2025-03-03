@@ -8,6 +8,17 @@
 [![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://youtu.be/JKDLet618hU)
 
 
+## Introduction
+VideoGrain is a zero-shot method for class-level, instance-level, and part-level video editing.
+- **Multi-grained Video Editing**
+  - class-level: Editing objects within the same class (previous SOTA limited to this level)
+  - instance-level: Editing each individual instance to distinct object
+  - part-level: Adding new objects or modifying existing attributes at the part-level
+- **Training-Free**
+  - Does not require any training/fine-tuning
+- **One prompt to control multi-regions, deep investigations about cross/self attn** 
+  - modulating cross attn weight for multi-regions control, visualization are available
+  - modulating self attn weight for feature decoupling, clustering function are available
 
 <table class="center" border="1" cellspacing="0" cellpadding="5">
   <tr>
@@ -92,7 +103,8 @@ VideoGrain is a training-free framework. To run the inference script, use the fo
 
 ```bash
 bash test.sh 
-or accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml
+#or 
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml
 ```
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>

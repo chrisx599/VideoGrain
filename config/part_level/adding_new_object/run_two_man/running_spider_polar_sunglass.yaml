@@ -1,4 +1,4 @@
-pretrained_model_path: "./ckpt/stable-diffusion-v1-5"
+pretrained_model_path: "ckpt/stable-diffusion-v1-5"
 logdir: ./result/part_level/run_two_man/left2spider_right2polar-sunglasses
 
 dataset_config:
