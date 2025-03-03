@@ -223,27 +223,26 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
   <td><img src="assets/part-level/ginger_body.gif"></td>
 </tr>
 <tr>
-  <td width=30% style="text-align:center;">source video</td>
-  <td width=30% style="text-align:center;">blue shirt</td>
-  <td width=30% style="text-align:center;">black suit</td>
-  <td width=30% style="text-align:center;">source video</td>
-  <td width=30% style="text-align:center;">head color: black→ ginger</td>
-  <td width=30% style="text-align:center;">body color: black → ginger</td>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">blue shirt</td>
+  <td width=15% style="text-align:center;">black suit</td>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">ginger head </td>
+  <td width=15% style="text-align:center;">ginger body</td>
 </tr>
+</table>
 
+<table class="center">
 <tr>
   <td><img src="assets/part-level/superman_cap.gif"></td>
   <td><img src="assets/part-level/superman_sunglass.gif"></td>
   <td><img src="assets/part-level/thor_sunglass.gif"></td>
-
 </tr>
 <tr>
   <td width=30% style="text-align:center;">superman+cap</td>
   <td width=30% style="text-align:center;">superman+sunglasses</td>
   <td width=30% style="text-align:center;">thor+sunglasses+red gloves</td>
-
 </tr>
-
 </table>
 
 
