@@ -284,7 +284,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/
   <td><img src="assets/soely_edit/input.gif"></td>
   <td><img src="assets/vis/edit.gif"></td>
   <td><img src="assets/vis/spiderman_weight.gif"></td>
-  <td><img src="assets/vis/bear_weight.gif"></td>
+  <td><img src="assets/bear_weight.gif"></td>
   <td><img src="/assets/vis/cherry_weight.gif"></td>
 </tr>
 <tr>
