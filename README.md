@@ -182,26 +182,12 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
 
 <table class="center">
 <tr>
-  <td width=50% style="text-align:center;">running_two_man/3cls_iron_spider.yaml</td>
-  <td width=50% style="text-align:center;">2_monkeys/2cls_teddy_bear_koala.yaml</td>
-</tr>
-<tr>
   <td><img src="assets/instance-level/left_iron_right_spider.gif"></td>
   <td><img src="assets/instance-level/teddy_koala.gif"></td>
-</tr>
-<tr>
-  <td width=50% style="text-align:center;">badminton/2cls_wonder_woman_spiderman.yaml</td>
-  <td width=50% style="text-align:center;">soap-box/soap-box.yaml</td>
-</tr>
-<tr>
   <td><img src="assets/instance-level/badminton.gif"></td>
-  <td><img src="assets/teaser/soap-box.gif"></td>
 </tr>
 <tr>
-  <td width=50% style="text-align:center;">2_cats/4cls_panda_vs_poddle.yaml</td>
-  <td width=50% style="text-align:center;">2_cars/left_firetruck_right_bus.yaml</td>
-</tr>
-<tr>
+  <td><img src="assets/instance-level/bike_3.gif"></td>
   <td><img src="assets/instance-level/panda_vs_poddle.gif"></td>
   <td><img src="assets/instance-level/2cars.gif"></td>
 </tr>
@@ -247,6 +233,50 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modi
   <td width=15% style="text-align:center;">superman + sunglasses</td>
 </tr>
 </table>
+
+
+##  Soely Edit on specific subjects, keep background unchanged
+You can get soely video editing results, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
+```
+
+<table class="center">
+<tr>
+  <td><img src="assets/part-level/man_text_message.gif"></td>
+  <td><img src="assets/part-level/blue-shirt.gif"></td>
+  <td><img src="assets/part-level/black-suit.gif"></td>
+  <td><img src="assets/part-level/cat_flower.gif"></td>
+</tr>
+<tr>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">blue shirt</td>
+  <td width=15% style="text-align:center;">black suit</td>
+  <td width=15% style="text-align:center;">source video</td>
+</tr>
+</table>
+
+## 🔍 Visualize Cross Attention Weight
+You can get visulize attention weight editing results, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
+```
+
+<table class="center">
+<tr>
+  <td><img src="assets/part-level/man_text_message.gif"></td>
+  <td><img src="assets/part-level/blue-shirt.gif"></td>
+  <td><img src="assets/part-level/black-suit.gif"></td>
+  <td><img src="assets/part-level/cat_flower.gif"></td>
+</tr>
+<tr>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">blue shirt</td>
+  <td width=15% style="text-align:center;">black suit</td>
+  <td width=15% style="text-align:center;">source video</td>
+</tr>
+</table>
+
 
 
 ## ✏️ Citation 
