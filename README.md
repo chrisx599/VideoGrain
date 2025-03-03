@@ -174,10 +174,10 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/ru
 </tr>
 </table>
 
-## 🕺  Part-level Video Editing
-You can get part-level video editing results, using the following command:
+## 💃 Instance-level Video Editing
+You can get instance-level video editing results, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level/running_two_man/running_3cls_iron_spider.yaml
 ```
 
 <table class="center">
@@ -207,10 +207,10 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modi
 </tr>
 </table>
 
-## 💃 Instance-level Video Editing
-You can get instance-level video editing results, using the following command:
+## 🕺  Part-level Video Editing
+You can get part-level video editing results, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level/running_two_man/running_3cls_iron_spider.yaml
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
 ```
 
 <table class="center">
@@ -230,7 +230,26 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
   <td width=15% style="text-align:center;">ginger head </td>
   <td width=15% style="text-align:center;">ginger body</td>
 </tr>
+<tr>
+  <td><img src="assets/part-level/man_text_message.gif"></td>
+  <td><img src="assets/part-level/superman.gif"></td>
+  <td><img src="assets/part-level/superman+cap.gif"></td>
+  <td><img src="assets/part-level/spin-ball.gif"></td>
+  <td><img src="assets/part-level/superman_spin.gif"></td>
+  <td><img src="assets/part-level/super_sunglass_spin.gif"></td>
+</tr>
+<tr>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">superman</td>
+  <td width=15% style="text-align:center;">superman + cap</td>
+  <td width=15% style="text-align:center;">source video</td>
+  <td width=15% style="text-align:center;">superman </td>
+  <td width=15% style="text-align:center;">superman + sunglasses</td>
+</tr>
 </table>
+
+
+
 
 <table class="center">
 <tr>
