@@ -14,7 +14,8 @@ VideoGrain is a zero-shot method for class-level, instance-level, and part-level
   - class-level: Editing objects within the same class (previous SOTA limited to this level)
   - instance-level: Editing each individual instance to distinct object
   - part-level: Adding new objects or modifying existing attributes at the part-level
-- **Training-Free:** Does not require any training/fine-tuning
+- **Training-Free** 
+  - Does not require any training/fine-tuning
 - **One-Prompt Multi-region Control & Deep investigations about cross/self attn** 
   - modulating cross-attn for multi-regions control (visualizations available)
   - modulating self-attn for feature decoupling (clustering are available)
@@ -46,7 +47,8 @@ VideoGrain is a zero-shot method for class-level, instance-level, and part-level
 </table>
 
 ## 📀 Demo Video
-https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d
+[![Demo Video of VideoGrain](https://res.cloudinary.com/dii3btvh8/image/upload/v1740987943/cover_video_y6cjfe.png)](https://www.youtube.com/watch?v=XEM4Pex7F9E "Demo Video of VideoGrain")
+<!-- https://github.com/user-attachments/assets/dc54bc11-48cc-4814-9879-bf2699ee9d1d -->
 
 
 ## 📣 News
