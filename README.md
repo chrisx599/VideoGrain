@@ -217,7 +217,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
 <tr>
   <td><img src="assets/part-level/man_text_message.gif"></td>
   <td><img src="assets/part-level/blue-shirt.gif"></td>
-  <td><img src="assets/part-level/blue-shirt.gif"></td>
+  <td><img src="assets/part-level/black-suit.gif"></td>
   <td><img src="assets/part-level/cat_flower.gif"></td>
   <td><img src="assets/part-level/ginger_head.gif"></td>
   <td><img src="assets/part-level/ginger_body.gif"></td>
