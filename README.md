@@ -296,8 +296,6 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/
 </tr>
 </table>
 
-
-
 ## ✏️ Citation 
 If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:
 ```bibtex
