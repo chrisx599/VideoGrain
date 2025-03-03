@@ -111,15 +111,17 @@ We segment videos using our ReLER lab's [SAM-Track](https://github.com/z-x-yang/
 ## 🔥 VideoGrain Editing
 
 ### Inference
+
 **prepare config**
+
 VideoGrain is a training-free framework. To run VideoGrain, please prepare your config follow these steps:
-- 1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth` (midas).
-- 2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
-- 3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
-- 4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
-- 5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5-10`. (Note that pnp>10 steps will be bad for multi-regions editing)
-- 6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
-- 7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
+1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth` (midas).
+2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
+3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
+4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
+5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5-10`. (Note that pnp>10 steps will be bad for multi-regions editing)
+6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
+7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
 
 ```bash
 bash test.sh 
