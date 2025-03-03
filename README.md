@@ -272,7 +272,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/
 </tr>
 </table>
 
-## 放大镜 Visualize Cross Attention Weight
+## 🔍 Visualize Cross Attention Weight
 You can get visulize attention weight editing results, using the following command:
 ```bash
 #setting vis_cross_attn: True in your config 
