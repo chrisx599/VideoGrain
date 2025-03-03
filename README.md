@@ -182,12 +182,26 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
 
 <table class="center">
 <tr>
-  <td><img src="assets/instance-level/left_iron_right_spider.gif"></td>
-  <td><img src="assets/instance-level/teddy_koala.gif"></td>
-  <td><img src="assets/instance-level/badminton.gif"></td>
+  <td width=50% style="text-align:center;">running_two_man/3cls_iron_spider.yaml</td>
+  <td width=50% style="text-align:center;">2_monkeys/2cls_teddy_bear_koala.yaml</td>
 </tr>
 <tr>
-  <td><img src="assets/instance-level/bike_3.gif"></td>
+  <td><img src="assets/instance-level/left_iron_right_spider.gif"></td>
+  <td><img src="assets/instance-level/teddy_koala.gif"></td>
+</tr>
+<tr>
+  <td width=50% style="text-align:center;">badminton/2cls_wonder_woman_spiderman.yaml</td>
+  <td width=50% style="text-align:center;">soap-box/soap-box.yaml</td>
+</tr>
+<tr>
+  <td><img src="assets/instance-level/badminton.gif"></td>
+  <td><img src="assets/teaser/soap-box.gif"></td>
+</tr>
+<tr>
+  <td width=50% style="text-align:center;">2_cats/4cls_panda_vs_poddle.yaml</td>
+  <td width=50% style="text-align:center;">2_cars/left_firetruck_right_bus.yaml</td>
+</tr>
+<tr>
   <td><img src="assets/instance-level/panda_vs_poddle.gif"></td>
   <td><img src="assets/instance-level/2cars.gif"></td>
 </tr>
@@ -238,42 +252,47 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modi
 ##  Soely Edit on specific subjects, keep background unchanged
 You can get soely video editing results, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/soely_edit/only_left.yaml
+                                                #--config config/instance_level/soely_edit/only_right.yaml
+                                                #--config config/instance_level/soely_edit/joint_edit.yaml
 ```
 
 <table class="center">
 <tr>
-  <td><img src="assets/part-level/man_text_message.gif"></td>
-  <td><img src="assets/part-level/blue-shirt.gif"></td>
-  <td><img src="assets/part-level/black-suit.gif"></td>
-  <td><img src="assets/part-level/cat_flower.gif"></td>
+  <td><img src="assets/soely_edit/input.gif"></td>
+  <td><img src="assets/soely_edit/left.gif"></td>
+  <td><img src="assets/soely_edit/right.gif"></td>
+  <td><img src="assets/soely_edit/joint.gif"></td>
 </tr>
 <tr>
-  <td width=15% style="text-align:center;">source video</td>
-  <td width=15% style="text-align:center;">blue shirt</td>
-  <td width=15% style="text-align:center;">black suit</td>
-  <td width=15% style="text-align:center;">source video</td>
+  <td width=25% style="text-align:center;">source video</td>
+  <td width=25% style="text-align:center;">left→Iron Man</td>
+  <td width=25% style="text-align:center;">right→Spiderman</td>
+  <td width=25% style="text-align:center;">joint edit</td>
 </tr>
 </table>
 
-## 🔍 Visualize Cross Attention Weight
+## 放大镜 Visualize Cross Attention Weight
 You can get visulize attention weight editing results, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
+#setting vis_cross_attn: True in your config 
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/running_two_man/3cls_spider_polar_vis_weight.yaml
 ```
 
 <table class="center">
 <tr>
-  <td><img src="assets/part-level/man_text_message.gif"></td>
-  <td><img src="assets/part-level/blue-shirt.gif"></td>
-  <td><img src="assets/part-level/black-suit.gif"></td>
-  <td><img src="assets/part-level/cat_flower.gif"></td>
+  <td><img src="assets/soely_edit/input.gif"></td>
+  <td><img src="assets/soely_edit/edit.gif"></td>
+  <td><img src="assets/vis/spiderman_weight.gif"></td>
+  <td><img src="assets/vis/bear_weight.gif"></td>
+  <td><img src="/assets/vis/cherry_weight.gif"></td>
 </tr>
 <tr>
-  <td width=15% style="text-align:center;">source video</td>
-  <td width=15% style="text-align:center;">blue shirt</td>
-  <td width=15% style="text-align:center;">black suit</td>
-  <td width=15% style="text-align:center;">source video</td>
+  <td width=20% style="text-align:center;">source video</td>
+  <td width=20% style="text-align:center;">left→spiderman, right→polar bear, trees→cherry blossoms</td>
+  <td width=20% style="text-align:center;">spiderman weight</td>
+  <td width=20% style="text-align:center;">bear weight</td>
+  <td width=20% style="text-align:center;">cherry weight</td>
 </tr>
 </table>
 
