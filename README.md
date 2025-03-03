@@ -90,22 +90,41 @@ Then extract them into ./annotator/ckpts
 
 </details>
 
-## 🔛 Prepare all the data
+## ⚡️ Prepare all the data
 
+### Provided data
+We have provided `all the video data and layout masks in VideoGrain` at following link. Please download unzip the data and put them in the `./data' root directory.
 ```
 gdown https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link
 tar -zxvf videograin_data.tar.gz
 ```
+### Customize your own data 
+**prepare video to frames**
+If the input video is mp4 file, using the following command to process it to frames:
+```bash
+python image_util/sample_video2frames.py --video_path 'your video path' --output_dir './data/video_name'
+```
+**prepare layout masks**
+We segment videos using our ReLER lab's [SAM-Track](https://github.com/z-x-yang/Segment-and-Track-Anything). I suggest using the `app.py` in SAM-Track for `graio` mode to manually select which region in the video your want to edit. Here, we also provided an script ` image_util/process_webui_mask.py` to process masks from SAM-Track path to VideoGrain path.
+
 
 ## 🔥 VideoGrain Editing
 
 ### Inference
-VideoGrain is a training-free framework. To run the inference script, use the following command:
+**prepare config**
+VideoGrain is a training-free framework. To run VideoGrain, please prepare your config follow these steps:
+- 1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth` (midas).
+- 2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
+- 3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
+- 4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
+- 5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5-10`. (Note that pnp>10 steps will be bad for multi-regions editing)
+- 6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
+- 7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
 
 ```bash
 bash test.sh 
 #or 
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  /path/to/the/config
 ```
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
@@ -125,7 +144,10 @@ result
 │           ├── sd_study                # cluster inversion feature
 ```
 </details>
+Editing 16 frames video on an single L40, the GPU memory cost is at most 23GB memory. The RAM cost is very small, roughly around 4GB.
 
+
+## Instance-level Video Editing
 
 ## ✏️ Citation 
 If you think this project is helpful, please feel free to leave a star⭐️⭐️⭐️ and cite our paper:

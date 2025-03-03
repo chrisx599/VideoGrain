@@ -34,7 +34,7 @@ editing_config:
     sample_seeds: [0]
     num_inference_steps: 50
     blending_percentage: 0
-    cluster_inversion_feature: True
+    #cluster_inversion_feature: True
     # vis_cross_attn: false
 
 test_pipeline_config:
