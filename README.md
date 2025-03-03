@@ -155,9 +155,9 @@ result
 ### 🌈 Multi-Grained Definition 
 You can get multi-grained definition result, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/running_two_man/running_man2spider.yaml   #class-level
-                                                # /config/instance_level/running_two_man/running_4cls_spider_polar.yaml  #instance-level
-                                      #config/part_level/adding_new_object/run_two_man/running_spider_polar_sunglass.yaml #part-level
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/running_two_man/man2spider.yaml   #class-level
+                                                # /config/instance_level/running_two_man/4cls_spider_polar.yaml  #instance-level
+                                      #config/part_level/adding_new_object/run_two_man/spider_polar_sunglass.yaml #part-level
 ```
 <table class="center">
 <tr>
@@ -174,10 +174,10 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/ru
 </tr>
 </table>
 
-## 💃 Instance-level Video Editing
-You can get instance-level video editing results, using the following command:
+## 🕺  Part-level Video Editing
+You can get part-level video editing results, using the following command:
 ```bash
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level/running_two_man/running_3cls_iron_spider.yaml
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
 ```
 
 <table class="center">
@@ -186,25 +186,64 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
   <td width=50% style="text-align:center;">2_monkeys/2cls_teddy_bear_koala.yaml</td>
 </tr>
 <tr>
-  <td><img src="assets/teaser/left_iron_right_spider.gif"></td>
-  <td><img src="assets/teaser/teddy_koala.gif"></td>
+  <td><img src="assets/instance-level/left_iron_right_spider.gif"></td>
+  <td><img src="assets/instance-level/teddy_koala.gif"></td>
 </tr>
 <tr>
   <td width=50% style="text-align:center;">badminton/2cls_wonder_woman_spiderman.yaml</td>
-  <td width=50% style="text-align:center;">bike_3/left_ironman_right_monkey.yaml</td>
+  <td width=50% style="text-align:center;">soap-box/soap-box.yaml</td>
 </tr>
 <tr>
-  <td><img src="assets/teaser/badminton.gif"></td>
-  <td><img src="assets/teaser/bike_3.gif"></td>
+  <td><img src="assets/instance-level/badminton.gif"></td>
+  <td><img src="assets/teaser/soap-box.gif"></td>
 </tr>
 <tr>
   <td width=50% style="text-align:center;">2_cats/4cls_panda_vs_poddle.yaml</td>
   <td width=50% style="text-align:center;">2_cars/left_firetruck_right_bus.yaml</td>
 </tr>
 <tr>
-  <td><img src="assets/teaser/panda_vs_poddle.gif"></td>
-  <td><img src="assets/teaser/2cars.gif"></td>
+  <td><img src="assets/instance-level/panda_vs_poddle.gif"></td>
+  <td><img src="assets/instance-level/2cars.gif"></td>
 </tr>
+</table>
+
+## 💃 Instance-level Video Editing
+You can get instance-level video editing results, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level/running_two_man/running_3cls_iron_spider.yaml
+```
+
+<table class="center">
+<tr>
+  <td><img src="assets/part-level/man_text_message.gif"></td>
+  <td><img src="assets/part-level/blue-shirt.gif"></td>
+  <td><img src="assets/part-level/blue-shirt.gif"></td>
+  <td><img src="assets/part-level/cat_flower.gif"></td>
+  <td><img src="assets/part-level/ginger_head.gif"></td>
+  <td><img src="assets/part-level/ginger_body.gif"></td>
+</tr>
+<tr>
+  <td width=30% style="text-align:center;">source video</td>
+  <td width=30% style="text-align:center;">blue shirt</td>
+  <td width=30% style="text-align:center;">black suit</td>
+  <td width=30% style="text-align:center;">source video</td>
+  <td width=30% style="text-align:center;">head color: black→ ginger</td>
+  <td width=30% style="text-align:center;">body color: black → ginger</td>
+</tr>
+
+<tr>
+  <td><img src="assets/part-level/superman_cap.gif"></td>
+  <td><img src="assets/part-level/superman_sunglass.gif"></td>
+  <td><img src="assets/part-level/thor_sunglass.gif"></td>
+
+</tr>
+<tr>
+  <td width=30% style="text-align:center;">superman+cap</td>
+  <td width=30% style="text-align:center;">superman+sunglasses</td>
+  <td width=30% style="text-align:center;">thor+sunglasses+red gloves</td>
+
+</tr>
+
 </table>
 
 
