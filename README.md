@@ -150,8 +150,9 @@ result
 ```
 </details>
 
-### 🚀Multi-Grained Video Editing Results
-## 🌈 Multi-Grained Definition 
+## 🚀Multi-Grained Video Editing Results
+
+### 🌈 Multi-Grained Definition 
 You can get multi-grained definition result, using the following command:
 ```bash
 CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config /config/class_level/running_two_man/running_man2spider.yaml   #class-level
@@ -181,24 +182,24 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
 
 <table class="center">
 <tr>
-  <td width=50% style="text-align:center;">config/instance_level/running_two_man/running_3cls_iron_spider.yaml</td>
-  <td width=50% style="text-align:center;">config/instance_level/2_monkeys/monkeys_2cls_teddy_bear_koala.yaml</td>
+  <td width=50% style="text-align:center;">running_two_man/3cls_iron_spider.yaml</td>
+  <td width=50% style="text-align:center;">2_monkeys/2cls_teddy_bear_koala.yaml</td>
 </tr>
 <tr>
   <td><img src="assets/teaser/left_iron_right_spider.gif"></td>
   <td><img src="assets/teaser/teddy_koala.gif"></td>
 </tr>
 <tr>
-  <td width=50% style="text-align:center;">config/instance_level/badminton/badminton_2cls_wonder_woman_spiderman.yaml</td>
-  <td width=50% style="text-align:center;">config/instance_level/bike_3/left_ironman_right_monkey.yaml</td>
+  <td width=50% style="text-align:center;">badminton/2cls_wonder_woman_spiderman.yaml</td>
+  <td width=50% style="text-align:center;">bike_3/left_ironman_right_monkey.yaml</td>
 </tr>
 <tr>
   <td><img src="assets/teaser/badminton.gif"></td>
   <td><img src="assets/teaser/bike_3.gif"></td>
 </tr>
 <tr>
-  <td width=50% style="text-align:center;">config/instance_level/2_cats/2cats_4cls_panda_vs_poddle.yaml</td>
-  <td width=50% style="text-align:center;">config/instance_level/2_cars/2cars_left_firetruck_right_school_bus.yaml</td>
+  <td width=50% style="text-align:center;">2_cats/4cls_panda_vs_poddle.yaml</td>
+  <td width=50% style="text-align:center;">2_cars/left_firetruck_right_bus.yaml</td>
 </tr>
 <tr>
   <td><img src="assets/teaser/panda_vs_poddle.gif"></td>
