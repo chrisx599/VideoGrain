@@ -119,7 +119,7 @@ bash test.sh
 CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/spider_polar_sunglass.yaml
 ```
 
-For other instance/part/class results in VideoGrain project page or teaser, we provide all the data (video frames and layout masks) and corresponding configs to reproduce, the results is shown in [🚀Multi-Grained Video Editing Results](#multi-grained-video-editing-results).
+For other instance/part/class results in VideoGrain project page or teaser, we provide all the data (video frames and layout masks) and corresponding configs to reproduce, check results in [🚀Multi-Grained Video Editing Results](#multi-grained-video-editing-results).
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
 
