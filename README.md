@@ -122,6 +122,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/addi
 For other instance/part/class results in VideoGrain project page or teaser, we provide all the data (video frames and layout masks) and corresponding configs to reproduce, the results is shown in [🚀Multi-Grained Video Editing Results](#multi-grained-video-editing-results).
 
 <details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
+
 ```
 result
 ├── run_two_man
