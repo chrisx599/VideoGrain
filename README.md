@@ -141,7 +141,7 @@ result
 
 
 ## Editing guidance for YOUR Video
-### 🔛prepare your config**
+### 🔛prepare your config
 
 VideoGrain is a training-free framework. To run VideoGrain on your video, modify `./config/demo_config.yaml` based on your needs:
 
