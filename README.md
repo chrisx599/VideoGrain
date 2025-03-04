@@ -141,7 +141,7 @@ result
 
 
 ## Editing guidance for YOUR Video
-**🔛prepare your config**
+### 🔛prepare your config**
 
 VideoGrain is a training-free framework. To run VideoGrain on your video, modify `./config/demo_config.yaml` based on your needs:
 
@@ -153,7 +153,7 @@ VideoGrain is a training-free framework. To run VideoGrain on your video, modify
 6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
 7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
 
-**😍Editing your video**
+### 😍Editing your video
 
 ```bash
 bash test.sh 
