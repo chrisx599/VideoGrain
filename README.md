@@ -4,7 +4,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2502.17258-B31B1B.svg)](https://arxiv.org/abs/2502.17258)
 [![HuggingFace Daily Papers Top1](https://img.shields.io/static/v1?label=HuggingFace%20Daily%20Papers&message=Top1&color=blue)](https://huggingface.co/papers/2502.17258)
 [![Project page](https://img.shields.io/badge/Project-Page-brightgreen)](https://knightyxp.github.io/VideoGrain_project_page/)
-[![Full Data](https://img.shields.io/badge/full%20data-full%20data-brightgreen)](https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link)
+[![Full Data](https://img.shields.io/badge/full-data-brightgreen)](https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)
 [![Demo Video - VideoGrain](https://img.shields.io/badge/Demo_Video-VideoGrain-red)](https://www.youtube.com/watch?v=XEM4Pex7F9E)
 
