@@ -108,32 +108,20 @@ python image_util/sample_video2frames.py --video_path 'your video path' --output
 We segment videos using our ReLER lab's [SAM-Track](https://github.com/z-x-yang/Segment-and-Track-Anything). I suggest using the `app.py` in SAM-Track for `graio` mode to manually select which region in the video your want to edit. Here, we also provided an script ` image_util/process_webui_mask.py` to process masks from SAM-Track path to VideoGrain path.
 
 
-## 🔥 VideoGrain Editing
+## 🔥🔥🔥 VideoGrain Editing
 
-### Inference
-
-**🔛prepare your config**
-
-VideoGrain is a training-free framework. To run VideoGrain on your video, modify `./config/demo_config.yaml` based on your needs:
-
-1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth`(midas).
-2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
-3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
-4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
-5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5/10`. (Note: pnp>10 steps will be bad for multi-regions editing)
-6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
-7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
-
-**😍Editing your video**
+### 🎨 Inference
+Your can reproduce the instance + part level results in our teaser by running:
 
 ```bash
 bash test.sh 
 #or 
-CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  /path/to/the/config
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/adding_new_object/run_two_man/spider_polar_sunglass.yaml
 ```
 
-<details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
+For other instance/part/class results in VideoGrain project page or teaser, we provide all the data (video frames and layout masks) and corresponding configs to reproduce, the results is shown in [🚀Multi-Grained Video Editing Results](#multi-grained-video-editing-results).
 
+<details><summary>The result is saved at `./result` . (Click for directory structure) </summary>
 ```
 result
 ├── run_two_man
@@ -149,6 +137,28 @@ result
 │           ├── sd_study                # cluster inversion feature
 ```
 </details>
+
+
+## Editing guidance for YOUR Video
+### 🔛prepare your config**
+
+VideoGrain is a training-free framework. To run VideoGrain on your video, modify `./config/demo_config.yaml` based on your needs:
+
+1. Replace your pretrained model path and controlnet path in your config. you can change the control_type to `dwpose` or `depth_zoe` or `depth`(midas).
+2. Prepare your video frames and layout masks (edit regions) using SAM-Track or SAM2 in dataset config.
+3. Change the `prompt`, and extract each `local prompt` in the editing prompts. the local prompt order should be same as layout masks order.
+4. Your can change flatten resolution with 1->64, 2->16, 4->8. (commonly, flatten at 64 worked best)
+5. To ensure temporal consistency, you can set `use_pnp: True` and `inject_step:5/10`. (Note: pnp>10 steps will be bad for multi-regions editing)
+6. If you want to visualize the cross attn weight, set `vis_cross_attn: True`
+7. If you want to cluster DDIM Inversion spatial temporal video feature, set `cluster_inversion_feature: True`
+
+### 😍Editing your video**
+
+```bash
+bash test.sh 
+#or 
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  /path/to/the/config
+```
 
 ## 🚀Multi-Grained Video Editing Results
 
@@ -207,7 +217,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config  config/instance_level
 </tr>
 </table>
 
-## 🕺  Part-level Video Editing
+## 🕺 Part-level Video Editing
 You can get part-level video editing results, using the following command:
 ```bash
 CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modification/man_text_message/blue_shirt.yaml
@@ -245,6 +255,43 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/part_level/modi
   <td width=15% style="text-align:center;">source video</td>
   <td width=15% style="text-align:center;">superman </td>
   <td width=15% style="text-align:center;">superman + sunglasses</td>
+</tr>
+</table> 
+
+## 🥳 Class-level Video Editing
+You can get class-level video editing results, using the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/class_level/wolf/wolf.yaml
+```
+
+<table class="center">
+<tr>
+  <td><img src="assets/class-level/wolf.gif"></td>
+  <td><img src="assets/class-level/pig.gif"></td>
+  <td><img src="assets/class-level/husky.gif"></td>
+  <td><img src="assets/class-level/bear.gif"></td>
+  <td><img src="assets/class-level/tiger.gif"></td>
+</tr>
+<tr>
+  <td width=15% style="text-align:center;">input</td>
+  <td width=15% style="text-align:center;">pig</td>
+  <td width=15% style="text-align:center;">husky</td>
+  <td width=15% style="text-align:center;">bear</td>
+  <td width=15% style="text-align:center;">tiger</td>
+</tr>
+<tr>
+  <td><img src="assets/class-level/tennis.gif"></td>
+  <td><img src="assets/class-level/tennis_1cls.gif"></td>
+  <td><img src="assets/class-level/tennis_3cls.gif"></td>
+  <td><img src="assets/class-level/car-1.gif"></td>
+  <td><img src="assets/class-level/posche.gif"></td>
+</tr>
+<tr>
+  <td width=15% style="text-align:center;">input</td>
+  <td width=15% style="text-align:center;">iron man</td>
+  <td width=15% style="text-align:center;">Batman + snow court + iced wall</td>
+  <td width=15% style="text-align:center;">input </td>
+  <td width=15% style="text-align:center;">posche</td>
 </tr>
 </table>
 
@@ -284,7 +331,7 @@ CUDA_VISIBLE_DEVICES=0 accelerate launch test.py --config config/instance_level/
   <td><img src="assets/soely_edit/input.gif"></td>
   <td><img src="assets/vis/edit.gif"></td>
   <td><img src="assets/vis/spiderman_weight.gif"></td>
-  <td><img src="assets/bear_weight.gif"></td>
+  <td><img src="assets/vis/bear_weight.gif"></td>
   <td><img src="/assets/vis/cherry_weight.gif"></td>
 </tr>
 <tr>
