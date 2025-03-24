@@ -7,7 +7,7 @@
 [![Full Data](https://img.shields.io/badge/Full-Data-brightgreen)](https://drive.google.com/file/d/1dzdvLnXWeMFR3CE2Ew0Bs06vyFSvnGXA/view?usp=drive_link)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=knightyxp.VideoGrain&left_color=green&right_color=red)
 [![YouTube](https://img.shields.io/badge/YouTube-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=XEM4Pex7F9E)
-[![Hugging Face Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-blue?logo=huggingface&logoColor=white)](https://huggingface.co/datasets/XiangpengYang/VideoGrain-dataset)
+[![Hugging Face Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-blue?logo=huggingface)](https://huggingface.co/datasets/XiangpengYang/VideoGrain-dataset)
 
 
 
