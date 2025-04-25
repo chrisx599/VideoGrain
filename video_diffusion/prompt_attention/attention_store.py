@@ -94,12 +94,20 @@ class AttentionStore(AttentionControl):
         return attn
 
     def between_steps(self):
-        if len(self.attention_store) == 0:
-            self.attention_store = self.step_store
-        else:
-            for key in self.attention_store:
-                for i in range(len(self.attention_store[key])):
-                    self.attention_store[key][i] += self.step_store[key][i]
+        self.attention_store = {
+            key: [tensor.clone() for tensor in steps]
+            for key, steps in self.step_store.items()
+        }
+        # if len(self.attention_store) == 0:
+        #     self.attention_store = self.step_store
+        # else:
+        #     for key in self.attention_store:
+        #         # L1 = len(self.step_store[key])
+        #         # L2 = len(self.attention_store.get(key, []))
+        #         # if L1 != L2:
+        #         #     print(f"[DEBUG] key={key} step_store len={L1}, attention_store len={L2}")
+        #         for i in range(len(self.attention_store[key])):
+        #             self.attention_store[key][i] += self.step_store[key][i]
                     
         self.step_store = self.get_empty_store()
 

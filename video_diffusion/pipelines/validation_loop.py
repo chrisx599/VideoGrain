@@ -8,7 +8,8 @@ import torch
 import torch.utils.data
 import torch.utils.checkpoint
 
-from diffusers.pipeline_utils import DiffusionPipeline
+# from diffusers.pipeline_utils import DiffusionPipeline
+from diffusers.pipelines import DiffusionPipeline
 from tqdm.auto import tqdm
 from video_diffusion.common.image_util import make_grid, annotate_image
 from video_diffusion.common.image_util import save_gif_mp4_folder_type

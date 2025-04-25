@@ -155,7 +155,9 @@ class ImageSequenceDataset(Dataset):
         mask_path = os.path.join(mask_path,f"{index:05d}.png")
 
         ### read mask by cv2
-        mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+        # mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+        img = Image.open(mask_path).convert("L")  # 灰度
+        mask = np.array(img)
         mask = (mask > 0).astype(np.uint8)
         # Determine dynamic destination size
         height, width = mask.shape
